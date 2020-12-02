@@ -36,7 +36,7 @@ SECRET_KEY = '4fk8t@&4=teu6g16w2s7rr5lmd#bp@9l^1qtdou5%xf!hleqwe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sattva2021.herokuapp.com']
 
 
 # Application definition
