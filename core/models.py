@@ -9,7 +9,10 @@ class Member(models.Model):
     year = models.CharField(max_length=200,blank=True)
     position = models.CharField(max_length=200,blank=True)
     deptName = models.CharField(max_length=200,blank=True)
-    img = models.ImageField(upload_to='corepics',blank=True)
     quote = models.TextField(max_length=400,blank=True)
+    posnum = models.CharField(max_length=10,blank=True)
     def __str__(self):
         return self.firstName+ ' ' + self.lastName + f' ({self.deptName})'
+    def get_model_fields(self,model):
+        return model._meta.fields
+    

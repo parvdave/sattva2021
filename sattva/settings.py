@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'core.apps.CoreConfig',
     'crispy_forms',
+    'django_extensions',
+    'main.apps.MainConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [

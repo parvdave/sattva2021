@@ -1,0 +1,322 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sattva 21</title>
+	<!-- MetaTags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<!-- semantic-js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+	<!-- semantic-css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+	<!-- custom-css -->
+    <link rel="stylesheet " href="{% static 'css/custnav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+	<style type="text/css">
+		html {
+			font-family: 'Sail', cursive;;
+		}
+	</style>
+</head>
+<body onload="makingdefault()">
+	<!-- Top-Nav-Bar -->
+	<div class="topnav navbar">
+		<div class="logo">
+			<img src="">
+		</div>
+		<div class="right-menu">
+			<div class="link">
+				<a class="item" id="remdays"></a><a class="item nohover">&nbspDays Left</a>
+			</div>
+		</div>
+	</div>
+	<!-- Top-Nav-Bar -->
+
+	<!-- Mobile Nav -->
+    <nav id="nav">
+	    <div class="back-circle"></div>
+	    <ul>
+	        <li class="link link-1"><a href="#"><span>Home</span></a></li>
+	        <li class="link link-2"><a href="#"><span>Events</span></a></li>
+	        <li class="link link-3"><a href="#"><span>Sponsors</span></a></li>
+	        <li class="link link-4"><a href="#"><span>Schedule</span></a></li>
+	        <li class="link link-5"><a href="#"><span>about</span></a></li>
+	    </ul>
+	    <div class="nav-btn" id="nav-btn">
+	        <div class="nav-bars" id="nav-bars">
+	            <img id="open" onclick="openclose();" src="{% static 'images/oyster_frames/frame_00_delay-0.1s.gif' %}">
+	        </div>
+	    </div>
+    </nav>
+    <!-- /Mobile Nav -->
+
+	<!-- Bottom-Nav-Bar -->
+	<div class="bottomnav navbar">
+		<div class="right-menu">
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/C.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="contactus();">Contact Us</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/T.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="ourteam();">Our Team</a>
+				</div>
+			</div>
+
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/M.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="aftermovie();">After Movie</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/A.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="aboutus();">About Sattva</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Bottom-Nav-Bar -->
+
+	<!-- MAPS -->
+	<div class="map">
+		<script src="{% static 'js/islandsView.js' %}"></script>
+	    <img src="{% static 'images/islands/Island-full-final2.png' %}" alt="" id="bgIsland">
+	    <div class="one islands" onclick="viewisland(1)" onmouseover="imgHover(0)" onmouseout="imgOut(0)" id="island1" style="z-index: 2;">
+	    	<img src="{% static 'images/islands/Management-small.png' %}" alt="" id="small1">
+	    	<img src="{% static 'images/islands//Management-big.png' %}" alt="" id="big1">
+	    </div>
+
+	    <div class="two islands" onclick="viewisland(2)" onmouseover="imgHover(1)" onmouseout="imgOut(1)" id="island2" style="z-index: 2;">
+	      	<img src="{% static 'images/islands/Informals-small.png' %}" alt="" id="small2">
+	      	<img src="{% static 'images/islands/Informals-big.png' %}" alt="" id="big2">
+	    </div>
+
+	    <div class="three islands" onclick="viewisland(3)" onmouseover="imgHover(2)" onmouseout="imgOut(2)" id="island3" style="z-index: 2;">
+	      	<img src="{% static 'images/islands/Publicity-small.png' %}" alt="" id="small3">
+	      	<img src="{% static 'images/islands/Publicity-big.png' %}" alt="" id="big3">
+	    </div>
+
+	    <div class="four islands" onclick="viewisland(4)" onmouseover="imgHover(3)" onmouseout="imgOut(3)" id="island4" style="z-index: 2;">
+	      	<img src="{% static 'images/islands/Pa-small.png' %}" alt="" id="small4">
+	      	<img src="{% static 'images/islands/Pa-big.png' %}" alt="" id="big4">
+	    </div>
+
+	    <div class="five islands" onclick="viewisland(5)" onmouseover="imgHover(4)" onmouseout="imgOut(4)" id="island5" style="z-index: 2;">
+	      	<img src="{% static 'images/islands/Sports-small.png' %}" alt="" id="small5">
+	      	<img src="{% static 'images/islands/Sports-big.png' %}" alt="" id="big5">
+	    </div>
+
+	    <div class="six islands" onclick="viewisland(6)" onmouseover="imgHover(5)" onmouseout="imgOut(5)" id="island6" style="z-index: 2;">
+	    	<img src="{% static 'images/islands/Photography-small.png' %}" alt="" id="small6">
+	    	<img src="{% static 'images/islands/Photography-big.png' %}" alt="" id="big6">
+	    </div>
+
+	    <div class="seven islands" onclick="viewisland(7)" onmouseover="imgHover(6)" onmouseout="imgOut(6)" id="island7" style="z-index: 2;"> 
+	      	<img src="{% static 'images/islands/Workshops-small.png' %}" alt="" id="small7">
+	      	<img src="{% static 'images/islands/Workshops-big.png' %}" alt="" id="big7"s>
+	    </div>
+	</div>
+	<!-- /MAPS -->
+
+	<!-- OurTeamPopUp -->
+	<div class="ui modal" id="ourteam">
+		<i class="close icon" style="z-index: 3000000;"></i>
+		<div class="tabmenu fadeIn animated2s">
+			<div class="ui top attached tabular menu">
+				<!--<a class="item trans active" data-tab="core">Core</a>
+				<a class="item trans" data-tab="technical">Technical</a>
+				<a class="item trans" data-tab="publicity">Publicity</a>
+				<a class="item trans" data-tab="publicity1">Publicity</a>
+				<a class="item trans" data-tab="publicity2">Publicity</a>
+				<a class="item trans" data-tab="publicity3">Publicity</a>
+				<a class="item trans" data-tab="publicity4">Publicity</a>
+				<a class="item trans" data-tab="publicity5">Publicity</a>
+				<a class="item trans" data-tab="publicity6">Publicity</a>
+				<a class="item trans" data-tab="publicity7">Publicity</a>
+				<a class="item trans" data-tab="publicity8">Publicity</a>-->
+				<a class="item trans coretabs" onclick = "getcoredetails(this)" id="{{supercoredept|make_list|slice:'0:4'|join:''}}" data-tab="{{supercoredept|lower}}">{{supercoredept}}</a>
+				{% for dept in depts %}
+					<a class="item trans coretabs" id="{{dept|make_list|slice:'0:5'|join:''}}" onclick = "getcoredetails(this)" data-tab="{{dept|lower}}">{{dept}}</a>
+				{% endfor %}
+			</div>
+
+			<div class="ui bottom attached tab segment active animated4s fadeIn" data-tab="core" id="team-pics-container">
+				<div class="info" id="team-pics">
+					<!--
+					<div class="image">
+					    <img src="{% static 'images/Departments/test3.png' %}">
+					    <div class="overlay">
+					    	<div class="overlaychild">
+						    	<div class="quote">"I am not Amit, I am a legend"</div>
+								<div class="name">Amit 	Shrivastava</div>
+								<div class="post">Head</div>
+					    	</div>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<video class="scrollvideo" id="scrollvid1">
+			<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<!-- /OurTeamPopUp -->
+
+	<!-- AboutUsPopUp Photography -->
+	<div class="ui modal" id="aboutus" style="">
+		<i class="close icon" style="z-index: 3000000;"></i>
+		<div class="tabmenu fadeIn animated2s">
+			<div class="ui top attached tabular menu">
+				<a class="item trans" data-tab="eventdetails">Details</a>
+				<a class="item trans" data-tab="eventrules">Rules</a>
+				<a class="item trans active" data-tab="eventregister">Register</a>
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="eventdetails">
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="eventrules">
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn active" data-tab="eventregister">
+				<div class="eventform">
+					<form action=".php" method="POST" autocomplete="off" id="photography">
+						<input type="text" name="photosolofname" placeholder="First Name*" required>
+						<input type="text" name="photosololname" placeholder="Last Name*" required>
+						<input type="number" name="photosoloage" placeholder="Age*" required>
+						<input type="email" name="photosoloemail" placeholder="Email*" required>
+						<input type="text" name="photosolocert" placeholder="Address for certificates*" required>
+						<input type="text" name="photosolocnum" placeholder="Contact Number*" required>
+						<input type="checkbox" name="">
+						<input type="text" name="photosolownum" placeholder="Whatsapp Number*" required>
+						<input type="text" name="registercity" placeholder="City*" required>
+						<select id="stream" name="registerstream" class="stream" required>
+							<option value="btech">B.Tech</option>
+							<option value="mbatech">MBA.Tech</option>
+							<option value="bti">B.Tech Integrated</option>
+							<option value="mca">MCA</option>
+						</select>
+						<label for="photosoloradio">Have you already received the details regarding the first phase of the competition (By someone from our team)?</label>
+						<input type="radio" name="photosoloradio" value="yes">Yes
+						<input type="radio" name="photosoloradio" value="no">No
+						<div class="clear"></div>
+						<!-- <input type="submit" id="registersubmit" name="registersubmit" value="REGISTER"> -->
+						<center>
+							<div class="button wood">
+							 	<div>REGISTER</div>
+							</div>
+						</center>
+						<div class="clear"></div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+		<video class="scrollvideo" id="scrollvid2">
+			<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<!-- /AboutUsPopUp -->
+
+	<!-- AfterMoviePopUp -->
+	<div class="ui modal" id="aftermovie">
+
+	</div>
+	<!-- /AfterMoviePopUp -->
+
+	<!-- ContactUsPopUp -->
+	<div class="ui modal" id="contactus">
+
+	</div>
+	<!-- /ContactUsPopUp -->
+
+	<!-- EventPopUp -->
+	<div class="ui modal" id="eventpopup">
+		
+	</div>
+	<!-- /EventPopUp -->
+
+</body>
+
+<script src="{% static 'js/custnav.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</html>
+<script>
+
+	getcoredetails('Supe');
+	var dict = { 1 : "{% static 'images/islands/Management-big.png' %}" , 
+            2 : "{% static 'images/islands/Informals-big.png' %}" ,
+            3 : "{% static 'images/islands/Publicity-big.png' %}" ,
+            4 : "{% static 'images/islands/Pa-big.png' %}" ,
+            5 : "{% static 'images/islands/Sports-big.png' %}" ,
+            6 : "{% static 'images/islands/Photography-big.png' %}" ,
+            7 : "{% static 'images/islands/Workshops-big.png' %}" ,
+		  };
+	
+	function getcoredetails(depttab)
+	{
+		if(depttab=='Supe')
+		{
+			depttab = document.getElementById('Supe');
+		}
+		// var url = "{% url 'core:core-info' dept=12345 %}".replace('12345', dept.toString());
+        // console.log(depttab);
+        // var string = "{% url 'menu:contents' Burger;
+		$.getJSON("/core/"+depttab.innerHTML,function(items)
+        {
+		  console.log(items);
+		  var inactiveTabs = document.getElementsByClassName('coretabs');
+		  for(var i=0;i<inactiveTabs.length;i++)
+		  {
+			inactiveTabs[i].classList.remove('active');
+		  }
+		  var tabClicked = document.getElementById(depttab.id);
+		  
+		  tabClicked.classList.add('active');
+		  // console.log(items[0].fields);
+		  const info = document.getElementById('team-pics');
+		  info.innerHTML="";
+		  for(var i=0;i<items.length;i++)
+		  {
+			  console.log(i);
+			  var image = document.createElement('div');
+			  image.classList.add('image');
+			  var corephoto = document.createElement('img');
+			  //corephoto.src = "{% static 'core/first second.png' %}".replace('first',i.fields.firstName);
+			  //corephoto.src = corephoto.src.replace('second',i.fields.lastName);
+			  corephoto.setAttribute('src',"{% static 'images/Departments/test3.png' %}");
+			  // console.log(corephoto);
+			  image.appendChild(corephoto);
+			  console.log(items[i].fields.firstName);
+			  
+			  image.innerHTML += "<div class='overlay'>"+
+									"<div class='overlaychild'>"+
+						    		'<div class="quote">"'+items[i].fields.quote+'"</div>'+
+									"<div class='name'>"+items[i].fields.firstName+" "+items[i].fields.lastName+"</div>"+
+									"<div class='post'>"+items[i].fields.position+"</div>"+					    		
+								"</div></div>";
+			  info.appendChild(image);
+		  }
+		  
+        });
+	}
+</script>

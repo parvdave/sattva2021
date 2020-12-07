@@ -1,0 +1,187 @@
+body {
+  overflow-x: auto;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+body .map {
+  position: relative;
+  width: 600px;
+  height: 650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+body .map .one {
+  position: absolute;
+  top: 390.2px;
+  left: 1.5px;
+  transform: scale(0.3);
+  transition: all 0.7s;
+  cursor: pointer;
+}
+
+body .map .one #big1 {
+  position: absolute;
+  top: -42px;
+  left: -30px;
+  transform: scale(1);
+  transition: all 0.7s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .one:hover {
+  transform: scale(0.45);
+}
+
+body .map .two {
+  position: absolute;
+  top: 110.5px;
+  left: -36.5px;
+  transform: scale(0.13);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .two #big2 {
+  position: absolute;
+  top: -0px;
+  left: 0px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .two:hover {
+  transform: scale(0.2);
+}
+
+body .map .three {
+  position: absolute;
+  top: -59.8px;
+  left: 156px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .three #big3 {
+  position: absolute;
+  top: -18px;
+  left: -13px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .three:hover {
+  transform: scale(0.3);
+}
+
+body .map .four {
+  position: absolute;
+  top: 206px;
+  left: -220px;
+  transform: scale(0.255);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .four #big4 {
+  position: absolute;
+  top: -15px;
+  left: -48px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .four:hover {
+  transform: scale(0.35);
+}
+
+body .map .five {
+  position: absolute;
+  top: 130px;
+  left: -48px;
+  transform: scale(0.5);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .five #big5 {
+  position: absolute;
+  top: -13px;
+  left: -46px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .five:hover {
+  transform: scale(0.7);
+}
+
+body .map .six {
+  position: absolute;
+  top: -33.5px;
+  left: -5px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .six #big6 {
+  position: absolute;
+  top: -13px;
+  left: -10px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .six:hover {
+  transform: scale(0.4);
+}
+
+body .map .seven {
+  position: absolute;
+  top: -46.5px;
+  left: 25px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .seven #big7 {
+  position: absolute;
+  top: -18px;
+  left: -15px;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .seven:hover {
+  transform: scale(0.4);
+}
+
+#bgIsland {
+  position: absolute;
+}

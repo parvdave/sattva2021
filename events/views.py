@@ -3,7 +3,8 @@ from .forms import SoloSingingForm
 from django.core.mail import send_mail,EmailMessage
 from django.views.generic import TemplateView
 from sattva.settings import EMAIL_HOST_USER
-
+from django.urls import reverse
+from django.conf.urls import static
 
 # Create your views here.
 class Renderform(TemplateView):
@@ -14,7 +15,7 @@ class Renderform(TemplateView):
         form = SoloSingingForm(request.POST)
         if form.is_valid():
             recepient = str(form['email'].value())
-            mail_content = """<!DOCTYPE html>
+            mail_content = f"""<!DOCTYPE html>
         <html lang="en">
 
         <head>
@@ -53,7 +54,7 @@ class Renderform(TemplateView):
             </div>
 
 
-            <h1 style="text-align: center;">Hi Vrushit Patel,
+            <h1 style="text-align: center;">Hi {request.POST.get('name')},
                 <br>
                 Welcome To XYZ Event
             </h1>
@@ -67,6 +68,8 @@ class Renderform(TemplateView):
         </html>"""
             msg = EmailMessage('Hi brotheriinoo',mail_content, EMAIL_HOST_USER, [recepient])
             msg.content_subtype = "html"
+            html_content = '<p>This is an <strong>important</strong> message.</p>'
+            msg.attach_alternative(html_content, "text/html")
             msg.send()
 
             # subject = 'hi deer'
