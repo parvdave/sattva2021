@@ -32,4 +32,11 @@ class GroupEventPA(models.Model):
     class Meta:
         verbose_name_plural = "Group PA Form"
 
-# Test Script : https://script.google.com/macros/s/AKfycbxYMvGD1SchsPLOqAVKB9uNqsa-hiiXFZwzWekr2N6E4JEJPtSF/exec
+class Poetry(models.Model):
+    name = models.CharField(max_length=200,blank=True)
+    age = models.IntegerField(default=2,max_length=100)
+    email = models.EmailField(max_length=200,blank=True)
+    address = models.TextField(max_length=300,blank=True)
+    phoneNum = models.CharField(blank=True,max_length=10)
+    whatsapp = models.CharField(max_length=10,blank=True)
+    contacted = models.BooleanField(default=False,blank=True)

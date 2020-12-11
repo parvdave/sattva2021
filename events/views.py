@@ -1,28 +1,18 @@
 from django.shortcuts import render,redirect
-from .forms import SoloSingingForm,GroupSingingForm
+from .forms import SoloSingingForm,GroupSingingForm,PoetryForm
 from django.core.mail import send_mail,EmailMessage
 from django.views.generic import TemplateView
 from sattva.settings import EMAIL_HOST_USER
 from django.urls import reverse
 from django.conf.urls import static
-
-
-def getOnly(request):
-    form = SoloSingingForm()
-    if request.get['submitted']=="registered":
-        return render(request,'core/base.html',{'form':form})
-    return render(request,'events/eventform.html',{'form':form})
-
-def renderform(request,event):
-    dict_event = {'solosinging':SoloSingingForm()}
-    form = dict_event[event]
-    return render(request,'events/eventform.html',{'form':form})
+from .models import Event
 
 # Create your views here.
 class Renderform(TemplateView):
     def get(self,request,event):
-        dict_event = {'solosinging':SoloSingingForm(),'groupsinging':GroupSingingForm()}
+        dict_event = {'solosinging':SoloSingingForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm()}
         form = dict_event[event]
+        eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
         return render(request,'events/eventform.html',{'form':form})
     def post(self,request,event):
         form = SoloSingingForm(request.POST)
