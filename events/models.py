@@ -24,5 +24,8 @@ class GroupEventPA(models.Model):
     email = models.EmailField(max_length=200,blank=True)
     phoneNum = models.CharField(max_length=200,blank=True)
     college = models.CharField(max_length=200,blank=True)
+    groupname = models.CharField(max_length=200,blank=True)
     class Meta:
         verbose_name_plural = "Group PA Form"
+
+# Test Script : https://script.google.com/macros/s/AKfycbxYMvGD1SchsPLOqAVKB9uNqsa-hiiXFZwzWekr2N6E4JEJPtSF/exec
