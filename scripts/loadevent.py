@@ -1,6 +1,6 @@
 from events.models import Event
 def run():
-    data = pd.read_csv('memberdeets.csv')
+    data = pd.read_csv('eventinfo.csv')
     columns = [i for i in data][1:]
     for i in range(80):
         firstName,lastName,stream=data[columns[0]][i],data[columns[1]][i],data[columns[2]][i]
