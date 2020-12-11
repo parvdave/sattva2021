@@ -8,7 +8,14 @@
         {% csrf_token %}
         {{form|crispy}}
         <button id="submit-form" class="btn btn-primary" name="submitted" value="registered" type="submit">Submit</button>
+        
     </form>
+    {% for rule in rules %}
+        <li>
+            {{rule}}
+        </li>
+        {% endfor %}
+        {{desc}}
 </div>
 
 

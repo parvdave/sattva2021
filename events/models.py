@@ -9,6 +9,7 @@ class Event(models.Model):
     desc = models.TextField(max_length=1000,blank=True)
     rules = models.TextField(max_length=1000,blank=True)
     content = models.TextField(max_length=1000,blank=True)
+    url = models.TextField(max_length=200,blank=True)
     def __str__(self):
         return self.eventName+f" ({self.deptName})"
 

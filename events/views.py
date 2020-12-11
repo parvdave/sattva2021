@@ -13,7 +13,7 @@ class Renderform(TemplateView):
         dict_event = {'solosinging':SoloSingingForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm()}
         form = dict_event[event]
         eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
-        return render(request,'events/eventform.html',{'form':form})
+        return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc})
     def post(self,request,event):
         form = SoloSingingForm(request.POST)
         if form.is_valid():
