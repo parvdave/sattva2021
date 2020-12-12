@@ -303,12 +303,12 @@
 			  var corephoto = document.createElement('img');
 			  //corephoto.src = "{% static 'core/first second.png' %}".replace('first',i.fields.firstName);
 			  //corephoto.src = corephoto.src.replace('second',i.fields.lastName);
-			  corephoto.setAttribute('src',"{% static 'images/Departments/test3.png' %}");
+			  corephoto.setAttribute('src',"{% static 'images/Departments/test3.png' %}".replace('test3',items[i].fields.firstName.toLowerCase()+"_"+items[i].fields.lastName.toLowerCase()));
 			  // console.log(corephoto);
 			  image.appendChild(corephoto);
 			  console.log(items[i].fields.firstName);
 			  
-			  image.innerHTML += "<div class='overlay'>"+
+			  image.innerHTML +=	"<div class='overlay'>"+
 									"<div class='overlaychild'>"+
 						    		'<div class="quote">"'+items[i].fields.quote+'"</div>'+
 									"<div class='name'>"+items[i].fields.firstName+" "+items[i].fields.lastName+"</div>"+

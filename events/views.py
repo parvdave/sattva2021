@@ -1,17 +1,20 @@
 from django.shortcuts import render,redirect
-from .forms import SoloSingingForm
+from .forms import SoloSingingForm,GroupSingingForm,PoetryForm
 from django.core.mail import send_mail,EmailMessage
 from django.views.generic import TemplateView
 from sattva.settings import EMAIL_HOST_USER
 from django.urls import reverse
 from django.conf.urls import static
+from .models import Event
 
 # Create your views here.
 class Renderform(TemplateView):
-    def get(self,request):
-        form = SoloSingingForm()
-        return render(request,'events/eventform.html',{'form':form})
-    def post(self,request):
+    def get(self,request,event):
+        dict_event = {'solosinging':SoloSingingForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm()}
+        form = dict_event[event]
+        eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
+        return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc})
+    def post(self,request,event):
         form = SoloSingingForm(request.POST)
         if form.is_valid():
             recepient = str(form['email'].value())
@@ -69,7 +72,6 @@ class Renderform(TemplateView):
             msg = EmailMessage('Hi brotheriinoo',mail_content, EMAIL_HOST_USER, [recepient])
             msg.content_subtype = "html"
             html_content = '<p>This is an <strong>important</strong> message.</p>'
-            msg.attach_alternative(html_content, "text/html")
             msg.send()
 
             # subject = 'hi deer'
