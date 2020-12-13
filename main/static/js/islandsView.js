@@ -1,12 +1,40 @@
+function viewevents(number) {
+  var island = { 1 : "one" , 
+          2 : "two" ,
+          3 : "three" ,
+          4 : "four" ,
+          5 : "five" ,
+          6 : "six" ,
+          7 : "seven" ,
+          8 : "eight" ,
+        };
+  var event = island[number] + "events";
+  document.getElementById(event).style.display = 'block';
+
+}
+
 function viewisland(number) {
   var islands = document.getElementsByClassName("islands");
   var bgIsland = document.getElementById("bgIsland");
-  
+  var dict = { 1 : "./static/images/islands/withflag/Management.png" , 
+            2 : "./static/images/islands/withflag/Informals.png" ,
+            3 : "./static/images/islands/withflag/Socials.png" ,
+            4 : "./static/images/islands/withflag/Pa.png" ,
+            5 : "./static/images/islands/withflag/SportsT.png" ,
+            6 : "./static/images/islands/withflag/Photography.png" ,
+            7 : "./static/images/islands/withflag/Workshops.png" ,
+            8 : "./static/images/islands/withflag/LAFA.png" ,
+          };
+          
   for (var i = 0; i < islands.length; i++) {
   islands[i].style.display = 'none';
   }
-
   bgIsland.src = dict[number];
+  if ( $(window).width()<= '600') {
+    document.getElementById("bgIsland").style.width = '60%';
+    document.getElementById("bgMap").style.width = '150%';
+  }
+  viewevents(number);
 }
 
 function imgHover(number) {
@@ -17,6 +45,7 @@ function imgHover(number) {
             4 : "big5" ,
             5 : "big6" ,
             6 : "big7" ,
+            7 : "big8" ,
           };
 
   var small = { 0 : "small1" , 
@@ -26,6 +55,7 @@ function imgHover(number) {
             4 : "small5" ,
             5 : "small6" ,
             6 : "small7" ,
+            7 : "small8" ,
           };
   var island = { 0 : "island1" , 
             1 : "island2" ,
@@ -34,6 +64,7 @@ function imgHover(number) {
             4 : "island5" ,
             5 : "island6" ,
             6 : "island7" ,
+            7 : "island8" ,
           }; 
 
   var small = document.getElementById(small[number]);
@@ -53,6 +84,7 @@ function imgOut(number) {
             4 : "big5" ,
             5 : "big6" ,
             6 : "big7" ,
+            7 : "big8" ,
           };
 
   var small = { 0 : "small1" , 
@@ -62,6 +94,7 @@ function imgOut(number) {
             4 : "small5" ,
             5 : "small6" ,
             6 : "small7" ,
+            7 : "small8" ,
           };
   var island = { 0 : "island1" , 
             1 : "island2" ,
@@ -70,6 +103,7 @@ function imgOut(number) {
             4 : "island5" ,
             5 : "island6" ,
             6 : "island7" ,
+            7 : "island8" ,
           }; 
           
   var small = document.getElementById(small[number]);

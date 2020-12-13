@@ -17,12 +17,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './css/needle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mobilemenu.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css" media="all" />
 	<style type="text/css">
 		html {
 			font-family: 'Sail', cursive;;
 		}
 	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    var outerContent = $('body');
+		    outerContent.scrollLeft($(window).width() / 5);
+		});
+	</script>
 </head>
 <body onload="makingdefault()">
 	<!-- Top-Nav-Bar -->
@@ -38,26 +47,37 @@
 	</div>
 	<!-- Top-Nav-Bar -->
 
-	<!-- Mobile Nav -->
-    <nav id="nav">
-	    <div class="back-circle"></div>
-	    <ul>
-	        <li class="link link-1"><a href="#"><span>Home</span></a></li>
-	        <li class="link link-2"><a href="#"><span>Events</span></a></li>
-	        <li class="link link-3"><a href="#"><span>Sponsors</span></a></li>
-	        <li class="link link-4"><a href="#"><span>Schedule</span></a></li>
-	        <li class="link link-5"><a href="#"><span>about</span></a></li>
-	    </ul>
-	    <div class="nav-btn" id="nav-btn">
-	        <div class="nav-bars" id="nav-bars">
-	            <img id="open" onclick="openclose();" src="{% static 'images/oyster_frames/frame_00_delay-0.1s.gif' %}">
-	        </div>
-	    </div>
-    </nav>
-    <!-- /Mobile Nav -->
+	<!-- Compass -->
+    <div class="compass">
+		<div class="needles">
+			<img src="{% static 'images/directions/north.png' %}" class="north">
+			<img src="{% static 'images/directions/west.png' %}" class="west">
+			<img src="{% static 'images/directions/east.png' %}" class="east">
+			<img src="{% static 'images/directions/south.png' %}" class="south">
+			<img src="{% static 'images/needle3.png' %}" alt="" class="needle">
+		</div>
+	</div>
+	<!-- /Compass -->
 
 	<!-- Bottom-Nav-Bar -->
 	<div class="bottomnav navbar">
+		<div class="left-menu">
+			<div class="itembox">
+				<div class="icon">
+					<a href="https://www.facebook.com/sattvafest" target="_blank"><img src="{% static 'images/social/facebook.png' %}"></a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<a href="https://www.instagram.com/sattva2021" target="_blank"><img src="{% static 'images/social/instagram.png' %}"></a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<a href="#" target="_blank"><img src="{% static 'images/social/youtube.png' %}"></a>
+				</div>
+			</div>
+		</div>
 		<div class="right-menu">
 			<div class="itembox">
 				<div class="icon">
@@ -97,43 +117,105 @@
 	<!-- /Bottom-Nav-Bar -->
 
 	<!-- MAPS -->
-	<div class="map">
+	<div class="map" id="bgMap">
 		<script src="{% static 'js/islandsView.js' %}"></script>
-	    <img src="{% static 'images/islands/Island-full-final2.png' %}" alt="" id="bgIsland">
+	    <img src="{% static 'images/islands/Island.png' %}" alt="" id="bgIsland">
 	    <div class="one islands" onclick="viewisland(1)" onmouseover="imgHover(0)" onmouseout="imgOut(0)" id="island1" style="z-index: 2;">
 	    	<img src="{% static 'images/islands/Management-small.png' %}" alt="" id="small1">
-	    	<img src="{% static 'images/islands//Management-big.png' %}" alt="" id="big1">
+	    	<img src="{% static 'images/islands/Management-big.png' %}" alt="" id="big1">
 	    </div>
+      	<div id="oneevents" class="events">
+      		<p id="oneevent1">Ad Vision</p>
+      		<p id="oneevent2">oneevent2</p>
+      		<p id="oneevent3">oneevent3</p>
+      		<p id="oneevent4">oneevent4</p>
+      		<p id="oneevent5">oneevent5</p>
+      		<p id="oneevent6">oneevent6</p>
+      	</div>
 
 	    <div class="two islands" onclick="viewisland(2)" onmouseover="imgHover(1)" onmouseout="imgOut(1)" id="island2" style="z-index: 2;">
 	      	<img src="{% static 'images/islands/Informals-small.png' %}" alt="" id="small2">
 	      	<img src="{% static 'images/islands/Informals-big.png' %}" alt="" id="big2">
 	    </div>
+      	<div id="twoevents" class="events">
+      		<p id="twoevent1">twoevent1</p>
+      		<p id="twoevent2">twoevent2</p>
+      		<p id="twoevent3">twoevent3</p>
+      		<p id="twoevent4">twoevent4</p>
+      		<p id="twoevent5">twoevent5</p>
+      		<p id="twoevent6">twoevent6</p>
+      		<p id="twoevent7">twoevent7</p>
+      	</div>
 
 	    <div class="three islands" onclick="viewisland(3)" onmouseover="imgHover(2)" onmouseout="imgOut(2)" id="island3" style="z-index: 2;">
-	      	<img src="{% static 'images/islands/Publicity-small.png' %}" alt="" id="small3">
-	      	<img src="{% static 'images/islands/Publicity-big.png' %}" alt="" id="big3">
+	      	<img src="{% static 'images/islands/Social-small.png' %}" alt="" id="small3">
+	      	<img src="{% static 'images/islands/Social-big.png' %}" alt="" id="big3">
 	    </div>
+	    <div id="threeevents" class="events">
+      		<p id="threeevent1">Photography</p>
+      		<p id="threeevent2">Food Truck</p>
+      		<p id="threeevent3">Food Drive</p>
+      		<p id="threeevent4">Red Dead</p>
+      	</div>
 
 	    <div class="four islands" onclick="viewisland(4)" onmouseover="imgHover(3)" onmouseout="imgOut(3)" id="island4" style="z-index: 2;">
 	      	<img src="{% static 'images/islands/Pa-small.png' %}" alt="" id="small4">
 	      	<img src="{% static 'images/islands/Pa-big.png' %}" alt="" id="big4">
 	    </div>
+      	<div id="fourevents" class="events">
+      		<p id="fourevent1">fourevent1</p>
+      		<p id="fourevent2">fourevent2</p>
+      		<p id="fourevent3">fourevent3</p>
+      		<p id="fourevent4">fourevent4</p>
+      		<p id="fourevent5">fourevent5</p>
+      		<p id="fourevent6">fourevent6</p>
+      		<p id="fourevent7">fourevent7</p>
+      		<p id="fourevent8">fourevent8</p>
+      		<p id="fourevent9">fourevent9</p>
+      	</div>
 
 	    <div class="five islands" onclick="viewisland(5)" onmouseover="imgHover(4)" onmouseout="imgOut(4)" id="island5" style="z-index: 2;">
 	      	<img src="{% static 'images/islands/Sports-small.png' %}" alt="" id="small5">
 	      	<img src="{% static 'images/islands/Sports-big.png' %}" alt="" id="big5">
 	    </div>
+      	<div id="fiveevents" class="events">
+      		<p id="fiveevent1">fiveevent1</p>
+      		<p id="fiveevent2">fiveevent2</p>
+      	</div>
 
 	    <div class="six islands" onclick="viewisland(6)" onmouseover="imgHover(5)" onmouseout="imgOut(5)" id="island6" style="z-index: 2;">
 	    	<img src="{% static 'images/islands/Photography-small.png' %}" alt="" id="small6">
 	    	<img src="{% static 'images/islands/Photography-big.png' %}" alt="" id="big6">
 	    </div>
+      	<div id="sixevents" class="events">
+      		<p id="sixevent1">sixevent1</p>
+      		<p id="sixevent2">sixevent2</p>
+      	</div>
 
 	    <div class="seven islands" onclick="viewisland(7)" onmouseover="imgHover(6)" onmouseout="imgOut(6)" id="island7" style="z-index: 2;"> 
 	      	<img src="{% static 'images/islands/Workshops-small.png' %}" alt="" id="small7">
 	      	<img src="{% static 'images/islands/Workshops-big.png' %}" alt="" id="big7"s>
 	    </div>
+      	<div id="sevenevents" class="events">
+      		<p id="sevenevent1">sevenevent1</p>
+      		<p id="sevenevent2">sevenevent2</p>
+      		<p id="sevenevent3">sevenevent3</p>
+      		<p id="sevenevent4">sevenevent4</p>
+      		<p id="sevenevent5">sevenevent5</p>
+      	</div>
+
+      	<div class="eight islands" onclick="viewisland(8)" onmouseover="imgHover(7)" onmouseout="imgOut(7)" id="island8" style="z-index: 2;"> 
+	      	<img src="{% static 'images/islands/LAFA-small.png' %}" alt="" id="small8">
+	      	<img src="{% static 'images/islands/LAFA-big.png' %}" alt="" id="big8"s>
+ 		</div>
+
+      	<div id="eightevents" class="events">
+      		<p id="eightevent1">eightevent1</p>
+      		<p id="eightevent2">eightevent2</p>
+      		<p id="eightevent3">eightevent3</p>
+      	</div>	   
+	
+
 	</div>
 	<!-- /MAPS -->
 
@@ -238,7 +320,10 @@
 
 	<!-- AfterMoviePopUp -->
 	<div class="ui modal" id="aftermovie">
-
+		<i class="close icon" style="z-index: 3000000;"></i>
+		<center>
+			<iframe src="https://www.youtube.com/embed/8mtVL9QZ3ww" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>			
+		</center>
 	</div>
 	<!-- /AfterMoviePopUp -->
 
@@ -254,9 +339,34 @@
 	</div>
 	<!-- /EventPopUp -->
 
+	<!-- MobileMenu -->
+	<div class="mobmenu pulldown" id="mobmenu">
+		<div class="mobilemenu">
+			<div class="mobilelogo">
+				<img src="{% static 'images/sattva-mlogo.png' %}">
+			</div>
+			<div class="menuitems">
+				<div class="mobileitem">
+					<a class="item" onclick="aboutus();">About Sattva</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="ourteam();">Our Team</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="aftermovie();">After Movie</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="contactus();">Contact Us</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="pulltext" onclick="pulldown();" id="updown">Menu</div>
+
+	</div>
+	<!-- /MobileMenu -->
 </body>
 
-<script src="{% static 'js/custnav.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 
 </html>

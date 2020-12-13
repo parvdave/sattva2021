@@ -5,5 +5,5 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('<str:event>/', views.Renderform.as_view(),name="dummy"),
+    path('<str:event>/', views.Renderform.as_view(),name="form-view"),
 ]
