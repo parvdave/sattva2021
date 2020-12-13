@@ -1,19 +1,31 @@
 from django.shortcuts import render,redirect
-from .forms import SoloSingingForm,GroupSingingForm,PoetryForm
+from .forms import *
 from django.core.mail import send_mail,EmailMessage
 from django.views.generic import TemplateView
 from sattva.settings import EMAIL_HOST_USER
 from django.urls import reverse
 from django.conf.urls import static
 from .models import Event
+from .managementForms import *
+from .workshopsforms import *
+from .sportsforms import *
+from .informalsforms import *
+from .photographyforms import *
 
 # Create your views here.
 class Renderform(TemplateView):
     def get(self,request,event):
-        dict_event = {'solosinging':SoloSingingForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm()}
+        dict_event = {'solosinging':SoloSingingForm(),'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
+        dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
+        dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
+        dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
+        dict_event.update({'popculture':PopCultureForm(),'punintended':PunIntendedForm(),'mrmssattva':MrMsSattvaForm()})
+        dict_event.update({'photography':PhotographyForm()})
         form = dict_event[event]
         eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
-        return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc})
+        return render(request,'events/eventform.html',{'form':form,'event':eventModel})
+
+        # return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc,'script':eventModel.url})
     def post(self,request,event):
         form = SoloSingingForm(request.POST)
         if form.is_valid():

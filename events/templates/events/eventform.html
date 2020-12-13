@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block title %}Registration{% endblock %}
 {% block content %}
-
+<h1>Form for {{event.eventName}}</h1>
 <div style="padding:10px;" class="container">
     <form name="submit-to-google-sheet" method="POST" id="test-form">
         {% csrf_token %}
@@ -15,14 +15,14 @@
             {{rule}}
         </li>
         {% endfor %}
-        {{desc}}
+        {{event.desc}}
 </div>
 
 
 {% endblock %}
 {% block script %}
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxKuq1oondBP_tLWNSYJZOpItG26qYJkD8GUw1MB4Rj813hWEA/exec'
+const scriptURL = '{{event.url}}'
 const form = document.forms['submit-to-google-sheet']
 
 form.addEventListener('submit', e => {
