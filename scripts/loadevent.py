@@ -2,13 +2,14 @@ from events.models import Event
 import pandas as pd
 
 def run():
-    data = pd.read_csv('eventinfo.csv')
+    data = pd.read_csv('eventsinfo.csv')
     columns = [i for i in data][1:]
     print(len(data))
     for i in range(len(data)):
         eventSlug,eventType,eventName = data[columns[0]][i],data[columns[1]][i],data[columns[2]][i]
         deptName,desc,rules,content = data[columns[3]][i],data[columns[4]][i],data[columns[5]][i],data[columns[6]][i]
-        e = Event(eventslug=eventSlug,eventName=eventName,eventType=eventType,desc=desc,rules=rules,content=content,deptName=deptName)
+        url = data[columns[7]][i]
+        e = Event(eventslug=eventSlug,eventName=eventName,eventType=eventType,desc=desc,rules=rules,content=content,deptName=deptName,url=url)
         e.save()
 
     # for i in range(80):

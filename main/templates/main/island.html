@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    
+    <div onload="viewevents({{argument}})" class="map" id="bgMap">
+        <script src="{% static 'js/islandsView.js' %}"></script>
+        {% with 'images/islands/withflag/'|add:dept|add:'.png' as island_url %}
+        <img src="{% static island_url %}" id="bgIsland">
+        {% endwith %}
+        <div id="{{deptdeets.deptid}}events"  style="display:block;" class="events">
+            {% for event in events %}
+                <p id="{{deptdeets.deptid}}event{{forloop.counter}}">{{event.eventName}}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

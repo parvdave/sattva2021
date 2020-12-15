@@ -10,7 +10,6 @@ function viewevents(number) {
         };
   var event = island[number] + "events";
   document.getElementById(event).style.display = 'block';
-
 }
 
 function viewisland(number) {
@@ -18,12 +17,11 @@ function viewisland(number) {
   var bgIsland = document.getElementById("bgIsland");
   var dict = { 1 : "./static/images/islands/withflag/Management.png" , 
             2 : "./static/images/islands/withflag/Informals.png" ,
-            3 : "./static/images/islands/withflag/Socials.png" ,
-            4 : "./static/images/islands/withflag/Pa.png" ,
-            5 : "./static/images/islands/withflag/SportsT.png" ,
+            3 : "./static/images/islands/withflag/LAFA.png" ,
+            5 : "./static/images/islands/withflag/Sports.png" ,
             6 : "./static/images/islands/withflag/Photography.png" ,
             7 : "./static/images/islands/withflag/Workshops.png" ,
-            8 : "./static/images/islands/withflag/LAFA.png" ,
+            8 : "./static/images/islands/withflag/Pa.png" ,
           };
           
   for (var i = 0; i < islands.length; i++) {

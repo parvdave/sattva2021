@@ -90,20 +90,30 @@ function aboutus() {
 	$('#aboutus')
   		.modal('show')
 	;
-	var vid = document.getElementById("scrollvid2");
-	vid.play();
 }
 
 function contactus() {
 	$('#contactus')
   		.modal('show')
 	;
+	var vid = document.getElementById("scrollvid4");
+	vid.play();
 }
 
 function aftermovie() {
 	$('#aftermovie')
   		.modal('show')
 	;
+	var vid = document.getElementById("scrollvid3");
+	vid.play();
+}
+
+function eventpopup() {
+	$('#eventpopup')
+  		.modal('show')
+	;
+	var vid = document.getElementById("scrollvid2");
+	vid.play();
 }
 
 $('.menu .item')

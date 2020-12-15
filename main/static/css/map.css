@@ -229,56 +229,20 @@ body .map .four:hover {
 
 #fourevents #fourevent1{
   position: absolute;
-  top: 122px;
-  left: -31px;
+  top: -25px;
+  left: 322px;
 }
 
 #fourevents #fourevent2{
   position: absolute;
-  top: 122px;
-  left: 146px;
+  top: 358px;
+  left: 402px;
 }
 
 #fourevents #fourevent3{
   position: absolute;
-  top: 141px;
-  left: 311px;
-}
-
-#fourevents #fourevent4{
-  position: absolute;
-  top: 140px;
-  left: 491px;
-}
-
-#fourevents #fourevent5{
-  position: absolute;
-  top: 286px;
-  left: 555px;
-}
-
-#fourevents #fourevent6{
-  position: absolute;
-  top: 342px;
-  left: 437px;
-}
-
-#fourevents #fourevent7{
-  position: absolute;
-  top: 318px;
-  left: 294px;
-}
-
-#fourevents #fourevent8{
-  position: absolute;
-  top: 305px;
-  left: 144px;
-}
-
-#fourevents #fourevent9{
-  position: absolute;
-  top: 206px;
-  left: 58px;
+  top: 196px;
+  left: 195px;
 }
 
 body .map .five {
@@ -406,8 +370,8 @@ body .map .seven:hover {
 
 body .map .eight {
   position: absolute;
-  top: -27px;
-  left: 265px;
+  top: -15px;
+  left: 280px;
   transform: scale(0.39);
   transition: all 0.5s;
   cursor: pointer;
@@ -415,8 +379,8 @@ body .map .eight {
 
 body .map .eight #big8 {
   position: absolute;
-  top: -8px;
-  left: -9px;
+  top: -17px;
+  left: -25px;
   transform: scale(0.897);
   transition: all 0.5s;
   cursor: pointer;
@@ -429,20 +393,56 @@ body .map .eight:hover {
 
 #eightevents #eightevent1{
   position: absolute;
-  top: -25px;
-  left: 322px;
+  top: 122px;
+  left: -31px;
 }
 
 #eightevents #eightevent2{
   position: absolute;
-  top: 358px;
-  left: 402px;
+  top: 122px;
+  left: 146px;
 }
 
 #eightevents #eightevent3{
   position: absolute;
-  top: 196px;
-  left: 195px;
+  top: 141px;
+  left: 311px;
+}
+
+#eightevents #eightevent4{
+  position: absolute;
+  top: 140px;
+  left: 491px;
+}
+
+#eightevents #eightevent5{
+  position: absolute;
+  top: 286px;
+  left: 555px;
+}
+
+#eightevents #eightevent6{
+  position: absolute;
+  top: 342px;
+  left: 437px;
+}
+
+#eightevents #eightevent7{
+  position: absolute;
+  top: 318px;
+  left: 294px;
+}
+
+#eightevents #eightevent8{
+  position: absolute;
+  top: 305px;
+  left: 144px;
+}
+
+#eightevents #eightevent9{
+  position: absolute;
+  top: 206px;
+  left: 58px;
 }
 
 #bgIsland {

@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sattva 21</title>
+	<!-- MetaTags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<!-- semantic-js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+		integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+		crossorigin="anonymous"></script>
+	<!-- semantic-css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+		integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+		crossorigin="anonymous" />
+	<!-- custom-css -->
+	<link rel="stylesheet " href="{% static 'css/custnav.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/map.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/contactus.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/aboutus.css' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="{% static '/css/needle.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobilemenu.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css" media="all" />
+	<script src="{% static '/js/keyListner.js' %}"/>
+	<style type="text/css">
+		html {
+			font-family: 'Sail', cursive;
+			;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var outerContent = $('body');
+			outerContent.scrollLeft($(window).width() / 5);
+		});
+	</script>
+</head>
+
+<body onload="makingdefault()" onkeypress="uniCharCode(event)">
+	
+	<!-- Top-Nav-Bar -->
+	<div class="topnav navbar">
+		<div class="logo">
+			<img src="">
+		</div>
+		<div class="right-menu">
+			<div class="link">
+				<a class="item" id="remdays"></a><a class="item nohover">&nbspDays Left</a>
+			</div>
+		</div>
+	</div>
+	<!-- Top-Nav-Bar -->
+	
+	<!-- Compass -->
+	<div class="compass">
+		<div class="needles">
+			<img src="{% static 'images/directions/north.png' %}" class="north">
+			<img src="{% static 'images/directions/west.png' %}" class="west">
+			<img src="{% static 'images/directions/east.png' %}" class="east">
+			<img src="{% static 'images/directions/south.png' %}" class="south">
+			<img src="{% static 'images/needle3.png' %}" alt="" class="needle">
+		</div>
+	</div>
+	<!-- /Compass -->
+	{% block content %}
+	{% endblock %}
+	<!-- Bottom-Nav-Bar -->
+	<div class="bottomnav navbar">
+		<div class="left-menu">
+			<div class="itembox">
+				<div class="icon">
+					<a href="https://www.facebook.com/sattvafest" target="_blank"><img
+							src="{% static 'images/social/facebook.png' %}"></a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<a href="https://www.instagram.com/sattva2021" target="_blank"><img
+							src="{% static 'images/social/instagram.png' %}"></a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<a href="#" target="_blank"><img src="{% static 'images/social/youtube.png' %}"></a>
+				</div>
+			</div>
+		</div>
+		<div class="right-menu">
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/C.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="contactus();">Contact Us</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/T.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="ourteam();">Our Team</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/M.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="aftermovie();">After Movie</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
+					<img src="{% static 'images/nav-but/A.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="aboutus();">About Sattva</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Bottom-Nav-Bar -->
+
+	<!-- EventPopUp -->
+	<div class="ui modal" id="eventpopup">
+		<i class="close icon" style="z-index: 3000000;"></i>
+		<div class="tabmenu fadeIn animated2s">
+			<div class="ui top attached tabular menu">
+				<a class="item trans" data-tab="eventdetails">Details</a>
+				<a class="item trans" data-tab="eventrules">Rules</a>
+				<a class="item trans active" data-tab="eventregister">Register</a>
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="eventdetails">
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="eventrules">
+			</div>
+			<div class="ui bottom attached tab segment animated4s fadeIn active" data-tab="eventregister">
+				<div class="eventform">
+					<form action=".php" method="POST" autocomplete="off" id="photography">
+						<input type="text" name="photosolofname" placeholder="First Name*" required>
+						<input type="text" name="photosololname" placeholder="Last Name*" required>
+						<input type="number" name="photosoloage" placeholder="Age*" required>
+						<input type="email" name="photosoloemail" placeholder="Email*" required>
+						<input type="text" name="photosolocert" placeholder="Address for certificates*" required>
+						<input type="text" name="photosolocnum" placeholder="Contact Number*" required>
+						<input type="checkbox" name="">
+						<input type="text" name="photosolownum" placeholder="Whatsapp Number*" required>
+						<input type="text" name="registercity" placeholder="City*" required>
+						<select id="stream" name="registerstream" class="stream" required>
+							<option value="btech">B.Tech</option>
+							<option value="mbatech">MBA.Tech</option>
+							<option value="bti">B.Tech Integrated</option>
+							<option value="mca">MCA</option>
+						</select>
+						<label for="photosoloradio">Have you already received the details regarding the first phase of the
+							competition (By someone from our team)?</label>
+						<input type="radio" name="photosoloradio" value="yes">Yes
+						<input type="radio" name="photosoloradio" value="no">No
+						<div class="clear"></div>
+						<!-- <input type="submit" id="registersubmit" name="registersubmit" value="REGISTER"> -->
+						<center>
+							<div class="button wood">
+								<div>REGISTER</div>
+							</div>
+						</center>
+						<div class="clear"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<video class="scrollvideo" id="scrollvid2">
+			<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<!-- /EventPopUp -->
+
+	<!-- MobileMenu -->
+	<div class="mobmenu pulldown" id="mobmenu">
+		<div class="mobilemenu">
+			<div class="mobilelogo">
+				<img src="{% static 'images/sattva-mlogo.png' %}">
+			</div>
+			<div class="menuitems">
+				<div class="mobileitem">
+					<a class="item" onclick="aboutus();">About Sattva</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="ourteam();">Our Team</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="aftermovie();">After Movie</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="contactus();">Contact Us</a>
+				</div>
+			</div>
+		</div>
+		<div id="pulltext" onclick="pulldown();" id="updown">Menu</div>
+	</div>
+	<!-- /MobileMenu -->
+</body>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/aboutus.js' %}"></script>
+
+</html>
+<script>
+
+	getcoredetails('Supe');
+	var dict = {
+		1: "{% static 'images/islands/Management-big.png' %}",
+		2: "{% static 'images/islands/Informals-big.png' %}",
+		3: "{% static 'images/islands/Publicity-big.png' %}",
+		4: "{% static 'images/islands/Pa-big.png' %}",
+		5: "{% static 'images/islands/Sports-big.png' %}",
+		6: "{% static 'images/islands/Photography-big.png' %}",
+		7: "{% static 'images/islands/Workshops-big.png' %}",
+	};
+
+	function getcoredetails(depttab) {
+		if (depttab == 'Supe') {
+			depttab = document.getElementById('Supe');
+		}
+		// var url = "{% url 'core:core-info' dept=12345 %}".replace('12345', dept.toString());
+		// console.log(depttab);
+		// var string = "{% url 'menu:contents' Burger;
+		$.getJSON("/core/" + depttab.innerHTML, function (items) {
+			console.log(items);
+			var inactiveTabs = document.getElementsByClassName('coretabs');
+			for (var i = 0; i < inactiveTabs.length; i++) {
+				inactiveTabs[i].classList.remove('active');
+			}
+			var tabClicked = document.getElementById(depttab.id);
+
+			tabClicked.classList.add('active');
+			// console.log(items[0].fields);
+			const info = document.getElementById('team-pics');
+			info.innerHTML = "";
+			for (var i = 0; i < items.length; i++) {
+				console.log(i);
+				var image = document.createElement('div');
+				image.classList.add('image');
+				var corephoto = document.createElement('img');
+				//corephoto.src = "{% static 'core/first second.png' %}".replace('first',i.fields.firstName);
+				//corephoto.src = corephoto.src.replace('second',i.fields.lastName);
+				corephoto.setAttribute('src', "{% static 'images/Departments/test3.png' %}".replace('test3', items[i].fields.firstName.toLowerCase() + "_" + items[i].fields.lastName.toLowerCase()));
+				// console.log(corephoto);
+				image.appendChild(corephoto);
+				console.log(items[i].fields.firstName);
+
+				image.innerHTML += "<div class='overlay'>" +
+					"<div class='overlaychild'>" +
+					'<div class="quote">"' + items[i].fields.quote + '"</div>' +
+					"<div class='name'>" + items[i].fields.firstName + " " + items[i].fields.lastName + "</div>" +
+					"<div class='post'>" + items[i].fields.position + "</div>" +
+					"</div></div>";
+				info.appendChild(image);
+			}
+		});
+	}
+</script>
