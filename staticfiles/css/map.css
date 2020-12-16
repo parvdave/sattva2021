@@ -41,8 +41,8 @@ body .map {
 
 body .map .one {
   position: absolute;
-  top: 390.2px;
-  left: 1.5px;
+  top: 350px;
+  left: -35px;
   transform: scale(0.3);
   transition: all 0.7s;
   cursor: pointer;
@@ -50,8 +50,8 @@ body .map .one {
 
 body .map .one #big1 {
   position: absolute;
-  top: -42px;
-  left: -30px;
+  top: 0px;
+  left: -5px;
   transform: scale(1.4);
   transition: all 0.7s;
   cursor: pointer;
@@ -370,8 +370,8 @@ body .map .seven:hover {
 
 body .map .eight {
   position: absolute;
-  top: -15px;
-  left: 280px;
+  top: -27px;
+  left: 273px;
   transform: scale(0.39);
   transition: all 0.5s;
   cursor: pointer;
@@ -379,8 +379,8 @@ body .map .eight {
 
 body .map .eight #big8 {
   position: absolute;
-  top: -17px;
-  left: -25px;
+  top: 15px;
+  left: -15px;
   transform: scale(0.897);
   transition: all 0.5s;
   cursor: pointer;

@@ -1,0 +1,39 @@
+#aboutus .ui.top.attached.tabular.menu {
+	overflow-x: hidden;
+}
+
+#aboutus .sponsors {
+	width: 100%;
+}
+
+#aboutus .sponsor-image {
+	width: 75%;
+	margin: 0 auto;
+}
+#aboutus .sponsor-image img {
+	width: 100%;
+}
+
+#aboutus .sponsor-info {
+	width: 70%;
+	text-align: center;
+	position: relative !important;
+	font-size: 24px !important;
+	margin: 5px auto 50px auto;
+}
+
+@media screen and (max-width: 600px) {
+	#aboutus .sponsor-image {
+		width: 95%;
+		margin: 0 auto;
+	}
+	#aboutus .sponsor-info {
+		width: 92%;
+		font-size: 18px !important;
+		text-align: justify;
+		font-family: "Courgette", cursive !important;
+		font-weight: 500 !important;
+		color: #2b2014 !important;
+		line-height: 18px !important;	
+	}
+}

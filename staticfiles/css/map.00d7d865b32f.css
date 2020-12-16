@@ -1,0 +1,450 @@
+body {
+  overflow-x: auto;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+body .map {
+  position: relative;
+  width: 600px;
+  height: 650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.events {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: visible;
+}
+
+.events p{
+  font-family: 'Caligo-Regular';
+  font-size: 36px;
+  -webkit-text-stroke: 1.3px #b39800;
+  line-height: 1;
+  margin: 0!important;
+  color: gold!important;
+  text-shadow: 0 0 30px black, 0 0 20px #1c1c1c;
+}
+
+
+body .map .one {
+  position: absolute;
+  top: 390.2px;
+  left: 1.5px;
+  transform: scale(0.3);
+  transition: all 0.7s;
+  cursor: pointer;
+}
+
+body .map .one #big1 {
+  position: absolute;
+  top: -42px;
+  left: -30px;
+  transform: scale(1.4);
+  transition: all 0.7s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .one:hover {
+  transform: scale(0.45);
+}
+
+#oneevents #oneevent1{
+  position: absolute;
+  top: 188px;
+  left: 34px;
+}
+
+#oneevents #oneevent2{
+  position: absolute;
+  top: 157px;
+  left: 217px;
+}
+
+#oneevents #oneevent3{
+  position: absolute;
+  top: 298px;
+  left: 167px;
+}
+
+#oneevents #oneevent4{
+  position: absolute;
+  top: 244px;
+  left: 482px;
+}
+
+#oneevents #oneevent5{
+  position: absolute;
+  top: 298px;
+  left: 366px;
+}
+
+#oneevents #oneevent6{
+  position: absolute;
+  top: 123px;
+  left: 378px;
+}
+
+body .map .two {
+  position: absolute;
+  top: 110.5px;
+  left: -36.5px;
+  transform: scale(0.13);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .two #big2 {
+  position: absolute;
+  top: -0px;
+  left: 0px;
+  transform: scale(1.5);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .two:hover {
+  transform: scale(0.2);
+}
+
+#twoevents #twoevent1{
+  position: absolute;
+  top: -5px;
+  left: 283px;
+}
+#twoevents #twoevent2{
+  position: absolute;
+  top: 40px;
+  left: 581px;
+}
+#twoevents #twoevent3{
+  position: absolute;
+  top: 262px;
+  left: 556px;
+}
+#twoevents #twoevent4{
+  position: absolute;
+  top: 504px;
+  left: 485px;
+}
+#twoevents #twoevent5{
+  position: absolute;
+  top: 490px;
+  left: 170px;
+}
+#twoevents #twoevent6{
+  position: absolute;
+  top: 392px;
+  left: -54px;
+}
+#twoevents #twoevent7{
+  position: absolute;
+  top: 221px;
+  left: 164px;
+}
+
+body .map .three {
+  position: absolute;
+  top: -59.8px;
+  left: 156px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .three #big3 {
+  position: absolute;
+  top: -18px;
+  left: -13px;
+  transform: scale(1.45);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .three:hover {
+  transform: scale(0.3);
+}
+
+#threeevents #threeevent1{
+  position: absolute;
+  top: 87px;
+  left: 70px;
+}
+
+#threeevents #threeevent2{
+  position: absolute;
+  top: 59px;
+  left: 253px;
+}
+
+#threeevents #threeevent3{
+  position: absolute;
+  top: 297px;
+  left: 223px;
+}
+
+#threeevents #threeevent4{
+  position: absolute;
+  top: 255px;
+  left: 461px;
+}
+
+body .map .four {
+  position: absolute;
+  top: 206px;
+  left: -220px;
+  transform: scale(0.255);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .four #big4 {
+  position: absolute;
+  top: -15px;
+  left: -48px;
+  transform: scale(1.4);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .four:hover {
+  transform: scale(0.37);
+}
+
+#fourevents #fourevent1{
+  position: absolute;
+  top: -25px;
+  left: 322px;
+}
+
+#fourevents #fourevent2{
+  position: absolute;
+  top: 358px;
+  left: 402px;
+}
+
+#fourevents #fourevent3{
+  position: absolute;
+  top: 196px;
+  left: 195px;
+}
+
+body .map .five {
+  position: absolute;
+  top: 130px;
+  left: -48px;
+  transform: scale(0.5);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .five #big5 {
+  position: absolute;
+  top: -35px;
+  left: -46px;
+  transform: scale(1.2);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .five:hover {
+  transform: scale(0.7);
+}
+
+#fiveevents #fiveevent1{
+  position: absolute;
+  top: 300px;
+  left: 150px;
+}
+
+#fiveevents #fiveevent2{
+  position: absolute;
+  top: 300px;
+  left: 357px;
+}
+
+body .map .six {
+  position: absolute;
+  top: -33.5px;
+  left: -5px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .six #big6 {
+  position: absolute;
+  top: -13px;
+  left: -10px;
+  transform: scale(1.3);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .six:hover {
+  transform: scale(0.4);
+}
+
+#sixevents #sixevent1{
+  position: absolute;
+  top: 271px;
+  left: 362px;
+}
+
+#sixevents #sixevent2{
+  position: absolute;
+  top: 181px;
+  left: 95px;
+}
+
+body .map .seven {
+  position: absolute;
+  top: -46.5px;
+  left: 25px;
+  transform: scale(0.25);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .seven #big7 {
+  position: absolute;
+  top: -18px;
+  left: -15px;
+  transform: scale(1.2);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .seven:hover {
+  transform: scale(0.4);
+}
+
+#sevenevents #sevenevent1{
+  position: absolute;
+  top: 190px;
+  left: 40px;
+}
+
+#sevenevents #sevenevent2{
+  position: absolute;
+  top: 91px;
+  left: 325px;
+}
+
+#sevenevents #sevenevent3{
+  position: absolute;
+  top: 208px;
+  left: 423px;
+}
+
+#sevenevents #sevenevent4{
+  position: absolute;
+  top: 350px;
+  left: 458px;
+}
+
+#sevenevents #sevenevent5{
+  position: absolute;
+  top: 335px;
+  left: 135px;
+}
+
+body .map .eight {
+  position: absolute;
+  top: -27px;
+  left: 273px;
+  transform: scale(0.39);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+body .map .eight #big8 {
+  position: absolute;
+  top: -17px;
+  left: -25px;
+  transform: scale(0.897);
+  transition: all 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+body .map .eight:hover {
+  transform: scale(0.6);
+}
+
+#eightevents #eightevent1{
+  position: absolute;
+  top: 122px;
+  left: -31px;
+}
+
+#eightevents #eightevent2{
+  position: absolute;
+  top: 122px;
+  left: 146px;
+}
+
+#eightevents #eightevent3{
+  position: absolute;
+  top: 141px;
+  left: 311px;
+}
+
+#eightevents #eightevent4{
+  position: absolute;
+  top: 140px;
+  left: 491px;
+}
+
+#eightevents #eightevent5{
+  position: absolute;
+  top: 286px;
+  left: 555px;
+}
+
+#eightevents #eightevent6{
+  position: absolute;
+  top: 342px;
+  left: 437px;
+}
+
+#eightevents #eightevent7{
+  position: absolute;
+  top: 318px;
+  left: 294px;
+}
+
+#eightevents #eightevent8{
+  position: absolute;
+  top: 305px;
+  left: 144px;
+}
+
+#eightevents #eightevent9{
+  position: absolute;
+  top: 206px;
+  left: 58px;
+}
+
+#bgIsland {
+  position: absolute;
+}

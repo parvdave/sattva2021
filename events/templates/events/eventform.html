@@ -7,7 +7,7 @@
     <form name="submit-to-google-sheet" method="POST" id="test-form">
         {% csrf_token %}
         {{form|crispy}}
-        <button id="submit-form" class="btn btn-primary" name="submitted" value="registered" type="submit">Submit</button>
+        <button id="submit-form" onclick="submittosheet()" class="btn btn-primary" name="submitted" type="submit">Submit</button>
         
     </form>
     {% for rule in rules %}
@@ -17,18 +17,22 @@
         {% endfor %}
         {{event.desc}}
 </div>
-
+        {{request23}}
 
 {% endblock %}
 {% block script %}
 
-const scriptURL = '{{event.url}}'
-const form = document.forms['submit-to-google-sheet']
+    function submittosheet()
+    {
+        const scriptURL = '{{event.url}}';
+        const form = document.forms['submit-to-google-sheet'];
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-})
+        form.addEventListener('submit', e => {
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        });
+    }
+    
+
 {% endblock %}

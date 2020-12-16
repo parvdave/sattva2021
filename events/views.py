@@ -10,7 +10,7 @@ from .models import Event
 # Create your views here.
 class Renderform(TemplateView):
     def get(self,request,event):
-        dict_event = {'solosinging':SoloSingingForm(),'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
+        dict_event = {'solosinging':SoloSingingForm(),'groupsinging':GroupSingingForm,'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
         dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
         dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
         dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
@@ -22,14 +22,16 @@ class Renderform(TemplateView):
 
         # return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc,'script':eventModel.url})
     def post(self,request,event):
-        dict_event = {'solosinging':SoloSingingForm(request.POST),'shortfilms':ShortFilmsForm(request.POST),'poetry':PoetryForm(request.POST),'groupsinging':GroupSingingForm(request.POST),'beatboxing':BeatBoxingForm(request.POST),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
-        dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
-        dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
-        dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
-        dict_event.update({'popculture':PopCultureForm(),'punintended':PunIntendedForm(),'mrmssattva':MrMsSattvaForm()})
-        dict_event.update({'photography':PhotographyForm()})
+        dict_event = {'solosinging':SoloSingingForm(request.POST),'shortfilms':ShortFilmsForm(request.POST),'poetry':PoetryForm(request.POST),'groupsinging':GroupSingingForm(request.POST),'beatboxing':BeatBoxingForm(request.POST),'classicaldance':ClassicalDanceForm(request.POST),'westerndance':WesternDanceForm(request.POST),'monoact':MonoActForm(request.POST)}
+        dict_event.update({'advision':AdVisionForm(request.POST),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(request.POST),"tazhakhabar":TazhaKhabarForm(request.POST),"bidweiser":BidweiserForm(request.POST),"marketguru":MarketGuruForm(request.POST)})
+        dict_event.update({'standupworkshop':StandUpWorkshopForm(request.POST),'influentialtrends':InfluentialTrendsWorkshopForm(request.POST),'danceworkshop':DanceWorkshopForm(request.POST),'fitnessworkshop':FitnessWorkshopForm(request.POST),'actingworkshop':ActingWorkshopForm(request.POST)})
+        dict_event.update({"fifa":FifaForm(request.POST),'rocketleague':RocketLeagueForm(request.POST),'pubg':PUBGForm(request.POST)})
+        dict_event.update({'popculture':PopCultureForm(request.POST),'punintended':PunIntendedForm(request.POST),'mrmssattva':MrMsSattvaForm(request.POST)})
+        dict_event.update({'photography':PhotographyForm(request.POST)})
         form = dict_event[event]
-        if form.is_valid():
+        if form.is_valid() == True:
+            print("hello")
+            redirect('main:landing-page')
             recepient = str(form['email'].value())
             mail_content = f"""<!DOCTYPE html>
             <html lang="en">
@@ -80,7 +82,6 @@ class Renderform(TemplateView):
                 </div>
             </main>
             </body>
-
             </html>"""
             msg = EmailMessage('Hi brotheriinoo',mail_content, EMAIL_HOST_USER, [recepient])
             msg.content_subtype = "html"
@@ -90,4 +91,4 @@ class Renderform(TemplateView):
             # message = 'Hope you are enjoying your Django Tutorials'
             # send_mail(subject, message, EMAIL_HOST_USER, [recepient], fail_silently = False)
             return render(request,'events/success.html',{'recepient':recepient})
-        return render(request,'events/eventform.html',{'form':form})
+        return render(request,'events/eventform.html',{'form':form,'request23':request.POST})

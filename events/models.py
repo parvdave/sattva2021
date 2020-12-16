@@ -1,4 +1,5 @@
 from django.db import models
+from phone_field import PhoneField
 
 # Create your models here.
 class Event(models.Model):
@@ -21,8 +22,8 @@ class SoloSinging(models.Model):
     idlink = models.URLField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(max_length=10,blank=True)
+    phoneNum = models.PositiveBigIntegerField(blank=True)
+    whatsapp = models.PositiveBigIntegerField(blank=True)
     contacted = models.BooleanField(default=False,blank=True)
     
 

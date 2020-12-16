@@ -1,0 +1,15 @@
+.eventform input[type="text"] {
+  font-size: 18px;
+  width: 80%;
+  height: 42px;
+  padding: 0 6px;
+  margin: 20px 25px;
+  float: left;
+  outline: 0;
+  border-width: 0 0 3px;
+  border-color: #654321;
+  background-color: transparent;
+  color: #654321;
+  font-family: "Cinzel Decorative", cursive;
+  font-weight: bold;
+}

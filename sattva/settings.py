@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'main.apps.MainConfig',
     'import_export',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

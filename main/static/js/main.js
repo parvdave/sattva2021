@@ -90,6 +90,8 @@ function aboutus() {
 	$('#aboutus')
   		.modal('show')
 	;
+	var vid = document.getElementById("scrollvid5");
+	vid.play();
 }
 
 function contactus() {
@@ -119,6 +121,7 @@ function eventpopup() {
 $('.menu .item')
 	.tab()
 ;
+
 var pull = 0;
 
 function pulldown() {
