@@ -10,6 +10,6 @@ def image(request):
     return render(request,'core/image.html',{})
 
 def jsonitems(request,dept):
-    coreinfo = serializers.serialize("json",Member.objects.all().filter(deptName__icontains=dept).order_by('posnum'))
+    coreinfo = serializers.serialize("json",Member.objects.all().filter(deptName__icontains=dept).order_by('posnum','firstName'))
     coreinfo = json.loads(coreinfo)
     return JsonResponse(coreinfo,safe=False)

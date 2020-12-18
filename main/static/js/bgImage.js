@@ -1,5 +1,4 @@
 /* ---------------- FISH "CLASS" START -------------- */
-
 $( document ).ready(function() {
     
 var FOLLOW_DISTANCE = 100;
@@ -246,7 +245,7 @@ function activateSpeedBoost() {
 
 //Update and draw all of them
 function update() {
-		if (fishes.length < 200) {
+		if (fishes.length < 50) {
 			fishes.push(new Fish(fishes.length));
 		}
 

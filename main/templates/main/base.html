@@ -29,12 +29,23 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobilemenu.css' %}">
 	<link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static 'css/form.css' %}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static 'css/events.css' %}" type="text/css" media="all" />
 	<script src="{% static '/js/keyListner.js' %}"/>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            var outerContent = $('body');
+            outerContent.scrollLeft($(window).width() / 5);
+        });
+    </script>
 	<style type="text/css">
 		html {
 			font-family: 'Sail', cursive;
 			;
 		}
+		
+		{% block style %}
+		{% endblock %}
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -72,67 +83,10 @@
 	<!-- /Compass -->
 	{% block content %}
 	{% endblock %}
-	<!-- Bottom-Nav-Bar -->
-	<div class="bottomnav navbar">
-		<div class="left-menu">
-			<div class="itembox">
-				<div class="icon">
-					<a href="https://www.facebook.com/sattvafest" target="_blank"><img
-							src="{% static 'images/social/facebook.png' %}"></a>
-				</div>
-			</div>
-			<div class="itembox">
-				<div class="icon">
-					<a href="https://www.instagram.com/sattva2021" target="_blank"><img
-							src="{% static 'images/social/instagram.png' %}"></a>
-				</div>
-			</div>
-			<div class="itembox">
-				<div class="icon">
-					<a href="#" target="_blank"><img src="{% static 'images/social/youtube.png' %}"></a>
-				</div>
-			</div>
-		</div>
-		<div class="right-menu">
-			<div class="itembox">
-				<div class="icon">
-					<img src="{% static 'images/nav-but/C.png' %}">
-				</div>
-				<div class="link">
-					<a class="item" onclick="contactus();">Contact Us</a>
-				</div>
-			</div>
-			<div class="itembox">
-				<div class="icon">
-					<img src="{% static 'images/nav-but/T.png' %}">
-				</div>
-				<div class="link">
-					<a class="item" onclick="ourteam();">Our Team</a>
-				</div>
-			</div>
-			<div class="itembox">
-				<div class="icon">
-					<img src="{% static 'images/nav-but/M.png' %}">
-				</div>
-				<div class="link">
-					<a class="item" onclick="aftermovie();">After Movie</a>
-				</div>
-			</div>
-			<div class="itembox">
-				<div class="icon">
-					<img src="{% static 'images/nav-but/A.png' %}">
-				</div>
-				<div class="link">
-					<a class="item" onclick="aboutus();">About Sattva</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Bottom-Nav-Bar -->
 
 	<!-- EventPopUp -->
-	<div class="ui modal" id="eventpopup">
-		<i class="close icon" style="z-index: 3000000;"></i>
+	<!--<div class="ui modal" id="eventpopup">
+		<i class="close icon" style="z-index: 3000000;"><a></a></i>
 		<div class="tabmenu fadeIn animated2s">
 			<div class="ui top attached tabular menu">
 				<a class="item trans" data-tab="eventdetails">Details</a>
@@ -166,11 +120,8 @@
 						<input type="radio" name="photosoloradio" value="yes">Yes
 						<input type="radio" name="photosoloradio" value="no">No
 						<div class="clear"></div>
-						<!-- <input type="submit" id="registersubmit" name="registersubmit" value="REGISTER"> -->
 						<center>
-							<div class="button wood">
-								<div>REGISTER</div>
-							</div>
+
 						</center>
 						<div class="clear"></div>
 					</form>
@@ -181,7 +132,7 @@
 			<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
-	</div>
+	</div>-->
 	<!-- /EventPopUp -->
 
 	<!-- MobileMenu -->
@@ -215,7 +166,8 @@
 
 </html>
 <script>
-
+	{% block script %}
+	{% endblock %}
 	getcoredetails('Supe');
 	var dict = {
 		1: "{% static 'images/islands/Management-big.png' %}",
@@ -268,4 +220,10 @@
 			}
 		});
 	}
+	window.onload = function() {
+		if ( $(window).width()<= '600') {
+	    document.getElementById("bgIsland").style.width = '60%';
+	    document.getElementById("bgMap").style.width = '150%';
+	  }
+	};
 </script>

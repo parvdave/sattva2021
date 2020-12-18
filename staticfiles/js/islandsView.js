@@ -28,10 +28,6 @@ function viewisland(number) {
   islands[i].style.display = 'none';
   }
   bgIsland.src = dict[number];
-  if ( $(window).width()<= '600') {
-    document.getElementById("bgIsland").style.width = '60%';
-    document.getElementById("bgMap").style.width = '150%';
-  }
   viewevents(number);
 }
 

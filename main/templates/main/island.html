@@ -1,7 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block style %}
+
+{% endblock %}
 {% block content %}
-    
     <div onload="viewevents({{argument}})" class="map" id="bgMap">
         <script src="{% static 'js/islandsView.js' %}"></script>
         {% with 'images/islands/withflag/'|add:dept|add:'.png' as island_url %}
@@ -9,7 +11,12 @@
         {% endwith %}
         <div id="{{deptdeets.deptid}}events"  style="display:block;" class="events">
             {% for event in events %}
-                <p id="{{deptdeets.deptid}}event{{forloop.counter}}">{{event.eventName}}</p>
+                <p id="{{deptdeets.deptid}}event{{forloop.counter}}">
+                    {% if '{{event.eventslug}}' != '' %}
+                    <a href="{% url 'events:form-view' event.eventslug %}">{{event.eventName}}</a>
+                    {% else %}
+                    {% endif %}
+                </p>
             {% endfor %}
         </div>
     </div>

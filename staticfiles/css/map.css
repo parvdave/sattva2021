@@ -28,14 +28,22 @@ body .map {
   overflow: visible;
 }
 
-.events p{
+@keyframes glow {
+  from {
+    text-shadow: 0 0 0px #fff, 0 0 0.5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #eac469, 0 0 2.5px #eac469, 0 0 3px #eac469;
+  }
+  to {
+    text-shadow: 0 0 0.5px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #eac469, 0 0 5px #eac469, 0 0 6px #eac469;
+  }
+}
+
+.events a{
   font-family: 'Caligo-Regular';
   font-size: 36px;
-  -webkit-text-stroke: 1.3px #b39800;
   line-height: 1;
   margin: 0!important;
-  color: gold!important;
-  text-shadow: 0 0 30px black, 0 0 20px #1c1c1c;
+  color: #fff!important;
+  animation: glow 0.8s ease-in-out infinite alternate;
 }
 
 
@@ -48,10 +56,11 @@ body .map .one {
   cursor: pointer;
 }
 
-body .map .one #big1 {
+body .map .one #big1
+{
   position: absolute;
-  top: 0px;
-  left: -5px;
+  top: 32px;
+  left: -30px;
   transform: scale(1.4);
   transition: all 0.7s;
   cursor: pointer;
@@ -379,7 +388,7 @@ body .map .eight {
 
 body .map .eight #big8 {
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: -15px;
   transform: scale(0.897);
   transition: all 0.5s;

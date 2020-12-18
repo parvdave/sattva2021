@@ -227,10 +227,10 @@ class WesternDanceForm(forms.ModelForm):
 
 # Photography
 
-class PhotographyForm(forms.ModelForm):
+class PhotographyContestForm(forms.ModelForm):
     event_name = "photographycontest"
     class Meta:
-        model = Photography
+        model = PhotographyContest
         fields = ['name','phoneNum','email', 'whatsapp', 'photo', 'video']
 
         labels = {

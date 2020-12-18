@@ -32,48 +32,33 @@ function needleMove() {
   needle.style.transform = "rotate(" + rot * 2 + "deg)";
 }
 
+var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+
 window.onload = function() {
 	document.getElementById("mobmenu").classList.remove("pulldown");
   	document.getElementById("mobmenu").classList.add("bounce");
   	document.getElementById("mobmenu").classList.add("bounced");
-
-  	if ( $(window).height()<= '570' && $(window).width()<= '330') {
-	  		document.getElementById("mobmenu").style.marginTop = '-149%';
-	}
-  	else if ( $(window).height()<= '667' && $(window).width()<= '375') {
-  		document.getElementById("mobmenu").style.marginTop = '-149%';
+  	
+  	if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+  		document.getElementById("mobmenu").style.marginTop = '-71vh';
   	}
-	else if ( $(window).height()<= '812' && $(window).width()<= '375') {
-  		document.getElementById("mobmenu").style.marginTop = '-184%';
-  	}
-  	else if ( $(window).height()<= '823' && $(window).width()<= '411') {
-  		document.getElementById("mobmenu").style.marginTop = '-169%';
-  	}	
   	else {
-  		document.getElementById("mobmenu").style.marginTop = '-150%';  		
+  		document.getElementById("mobmenu").style.marginTop = '-78vh';
   	}
 
 	setTimeout(function() {
 		document.getElementById("mobmenu").classList.remove("bounced");
 		document.getElementById("mobmenu").classList.add("bounceu");
-
-		if ( $(window).height()<= '570' && $(window).width()<= '330') {
-			document.getElementById("mobmenu").style.marginTop = '-159%';
-		}
-	  	else if ( $(window).height()<= '667' && $(window).width()<= '375') {
-	  		document.getElementById("mobmenu").style.marginTop = '-159%';
+  		document.getElementById("mobmenu").style.marginTop = '-81vh';
+  	  	if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+	  		document.getElementById("mobmenu").style.marginTop = '-75vh';
 	  	}
-		else if ( $(window).height()<= '812' && $(window).width()<= '375') {
-	  		document.getElementById("mobmenu").style.marginTop = '-194%';
+	  	else {
+	  		document.getElementById("mobmenu").style.marginTop = '-81vh';
 	  	}
-		else if ( $(window).height()<= '823' && $(window).width()<= '411') {
-  			document.getElementById("mobmenu").style.marginTop = '-179%';
-  		}
-  		else {
-  			document.getElementById("mobmenu").style.marginTop = '-160%';
-  		}
 	}, 750)
 	document.getElementById("mobmenu").classList.add("pulldown");
+
 };
 
 var c = 0;
@@ -110,13 +95,7 @@ function aftermovie() {
 	vid.play();
 }
 
-function eventpopup() {
-	$('#eventpopup')
-  		.modal('show')
-	;
-	var vid = document.getElementById("scrollvid2");
-	vid.play();
-}
+
 
 $('.menu .item')
 	.tab()
@@ -128,7 +107,7 @@ function pulldown() {
 	if(pull==0){
 		document.getElementById("mobmenu").classList.remove("pullu");
 	  	document.getElementById("mobmenu").classList.add("pulld");
-	  	document.getElementById("mobmenu").style.marginTop = '0%';
+	  	document.getElementById("mobmenu").style.marginTop = '0vh';
 		setTimeout(function() {
 			document.getElementById('pulltext').innerHTML = 'Back to Map';
 		}, 700)
@@ -137,21 +116,11 @@ function pulldown() {
 	else if(pull==1) {
 	  	document.getElementById("mobmenu").classList.remove("pulld");
   		document.getElementById("mobmenu").classList.add("pullu");
-
-	   	if ( $(window).height()<= '570' && $(window).width()<= '330') {
-	  		document.getElementById("mobmenu").style.marginTop = '-159%';
+  	  	if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+	  		document.getElementById("mobmenu").style.marginTop = '-75vh';
 	  	}
-		else if ( $(window).height()<= '667' && $(window).width()<= '375') {
-	  		document.getElementById("mobmenu").style.marginTop = '-159%';
-	  	}
-		else if ( $(window).height()<= '812' && $(window).width()<= '375') {
-	  		document.getElementById("mobmenu").style.marginTop = '-194%';
-	  	}
-  	 	else if ( $(window).height()<= '823' && $(window).width()<= '411') {
-	  		document.getElementById("mobmenu").style.marginTop = '-179%';
-	  	}	  	
 	  	else {
-	  		document.getElementById("mobmenu").style.marginTop = '-160%';  		
+	  		document.getElementById("mobmenu").style.marginTop = '-81vh';
 	  	}
 		setTimeout(function() {
 			document.getElementById('pulltext').innerHTML = 'Menu';

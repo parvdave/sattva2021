@@ -12,7 +12,7 @@ class Event(models.Model):
     content = models.TextField(max_length=1000,blank=True)
     url = models.TextField(max_length=200,blank=True)
     def __str__(self):
-        return self.eventName+f" ({self.deptName})"
+        return self.eventName+f" ({self.deptName}) {self.eventslug}"
 
 
 class SoloSinging(models.Model):
@@ -282,7 +282,7 @@ class PopCulture(models.Model):
     gender2 = models.CharField(choices=genderChoices,max_length=200)
 
 
-class Photography(models.Model):
+class PhotographyContest(models.Model):
     name = models.CharField(max_length=200,blank=True)
     phoneNum = models.CharField(blank=True,max_length=10)
     whatsapp = models.CharField(blank=True,max_length=10)
