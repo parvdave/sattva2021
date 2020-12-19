@@ -2,38 +2,31 @@
 	overflow-x: hidden;
 }
 
-#aboutus .sponsors {
-	width: 100%;
-}
-
-#aboutus .sponsor-image {
-	width: 75%;
+.sponsor-image {
 	margin: 0 auto;
-}
-#aboutus .sponsor-image img {
-	width: 100%;
+	text-align: center;
+	align-content: center;
+	align-items: center;
 }
 
-#aboutus .sponsor-info {
-	width: 70%;
-	text-align: center;
-	position: relative !important;
-	font-size: 24px !important;
-	margin: 5px auto 50px auto;
+.column.sponsor-image img {
+	width: 90%;
+}
+
+.column.quote {
+	top: 0%;
+	font-size: 24px;
+	text-align: justify;
 }
 
 @media screen and (max-width: 600px) {
-	#aboutus .sponsor-image {
-		width: 95%;
-		margin: 0 auto;
-	}
-	#aboutus .sponsor-info {
-		width: 92%;
-		font-size: 18px !important;
+	.column.quote {
+		top: 0%;
+		font-size: 20px;
 		text-align: justify;
-		font-family: "Courgette", cursive !important;
-		font-weight: 500 !important;
-		color: #2b2014 !important;
-		line-height: 18px !important;	
 	}
+	.column.sponsor-image img {
+		width: 70%;
+	}
+
 }

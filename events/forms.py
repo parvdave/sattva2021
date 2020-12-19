@@ -1,11 +1,12 @@
 from django import forms
 from .models import *
+from django.core import validators
 
 class SoloSingingForm(forms.ModelForm):
     event_name = "solosinging"
     class Meta:
         model = SoloSinging
-        fields = ['name','age','email','country','address','idlink','phoneNum','idlink','whatsapp','contacted']
+        fields = ['name','age','email','country','address','idlink','phoneNum','whatsapp','contacted']
         labels = {
         "name": "",
         "email": "",
@@ -14,35 +15,47 @@ class SoloSingingForm(forms.ModelForm):
         'phoneNum':"",
         'whatsapp':"",
         'country':'',
-        'idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
-            'idlink':forms.URLInput(attrs={'placeholder':'Upload your ID proof to imgdb.in and paste the link here'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number','required':'required'}),
         }
 
-class GroupSingingForm(forms.Form):
+class GroupSingingForm(forms.ModelForm):
     event_name = "groupsinging"
-    name = forms.CharField(label='Your name', max_length=100)
-    email = forms.EmailField(label='Email Address',max_length=100)
-    age = forms.IntegerField(label='Your age',max_value=26,min_value=0)
-    # class Meta:
-    #     model = GroupSinging
-    #     fields = ['name','age','email','country','address','phoneNum','whatsapp','contacted']
-    #     labels = {
-    #     "name": "Enter your name: ",
-    #     "email": "Enter your email: ",
-    #     'age':'Enter age: ',
-    #     'address':'Enter your address: ',
-    #     'phoneNum':"Enter your contact number: ",
-    #     'whatsapp':"Enter your whatsapp number: ",
-    #     'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
-    #     }
+    class Meta:
+        model = GroupSinging
+        fields = ['name_of_group','number_of_members','name_of_head','email','address','country','phoneNum','whatsapp','contacted']
+        labels = {
+        "name_of_group": "",
+        'number_of_members':'',
+        'name_of_head':'',
+        "email": "",
+        'age':'',
+        'address':'',
+        'country':'',
+        'phoneNum':"",
+        'whatsapp':"",
+        'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
+        }
+        widgets = {
+            'name_of_group': forms.TextInput(attrs={'placeholder': "Name of Group: ",'required':'required'}),
+            'number_of_members':forms.EmailInput(attrs={'placeholder': 'Number of members','required':'required'}),
+            'name_of_head':forms.NumberInput(attrs={'placeholder':'Name of Head: ','required':'required'}),
+            'email':forms.TextInput(attrs={'placeholder':'Email Address of Head: ','required':'required'}),
+            'address':forms.Textarea(attrs={'placeholder':'Address: '}),
+            'country':forms.TextInput(attrs={'placeholder':'Country: ','required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Phone number: ','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number: ','required':'required'}),
+        }
 
 class PoetryForm(forms.ModelForm):
     event_name = "poetry"
@@ -55,18 +68,20 @@ class PoetryForm(forms.ModelForm):
         'age':'',
         'address':'',
         'phoneNum':"",
-        'whatsapp':"",'idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'whatsapp':"",
         'country':'',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
-            'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
-            'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number','required':'required'}),
         }
 
 class ShortFilmsForm(forms.ModelForm):
@@ -91,6 +106,7 @@ class ShortFilmsForm(forms.ModelForm):
             'genreoffilm':forms.TextInput(attrs={'placeholder': 'Genre of film','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
             'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
             'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
             'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
@@ -105,21 +121,23 @@ class BeatBoxingForm(forms.ModelForm):
         labels = {
         "name": "",
         "email": "",
-        'age':'','idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'age':'',
         'address':'',
         'phoneNum':"",
         'whatsapp':"",
         'country':'',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
-            'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
-            'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number','required':'required'}),
         }
 
 class MonoActForm(forms.ModelForm):
@@ -130,21 +148,23 @@ class MonoActForm(forms.ModelForm):
         labels = {
         "name": "",
         "email": "",
-        'age':'','idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'age':'',
         'address':'',
         'phoneNum':"",
         'whatsapp':"",
         'country':'',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
-            'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
-            'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number','required':'required'}),
         }
 
 class RapBattleForm(forms.ModelForm):
@@ -155,21 +175,23 @@ class RapBattleForm(forms.ModelForm):
         labels = {
         "name": "",
         "email": "",
-        'age':'','idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'age':'',
         'address':'',
         'phoneNum':"",
         'whatsapp':"",
         'country':'',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
-            'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
-            'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'whatsapp':forms.TextInput(attrs={'placeholder':'Whatsapp number','required':'required'}),
         }
 
 class ClassicalDanceForm(forms.ModelForm):
@@ -185,50 +207,55 @@ class ClassicalDanceForm(forms.ModelForm):
         'phoneNum':"",
         'whatsapp':"",
         'style':"",
+        'country':'',
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
             'style':forms.TextInput(attrs={'placeholder':'Style of Dance','required':'required'}),
             'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
             'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
         }
 
 class WesternDanceForm(forms.ModelForm):
     event_name = "westerndance"
     class Meta:
         model = WesternDance
-        fields = ['name','age','email','country','address','idlink','style','phoneNum','whatsapp','contacted']
+        fields = ['name','style','age','email','country','address','idlink','phoneNum','whatsapp','contacted']
         labels = {
         "name": "",
         "email": "",
         'age':'',
         'address':'',
         'phoneNum':"",
-        'style':"",'idlink':'Upload your ID proof to imgdb.in and paste the link here',
+        'style':"",
         'whatsapp':"",
+        'idlink':'Upload your ID to <a href="https://imgdb.in">imgdb.in</a> and paste the link here',
         'country':"",
         'contacted':"Have you already received the details regarding the first phase of the competition (By someone from our team)? (Yes/No) ",
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required','required':'required'}),
             'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
-            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
             'address':forms.Textarea(attrs={'placeholder':'Address','required':'required'}),
             'country':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
             'style':forms.TextInput(attrs={'placeholder':'Style of Dance','required':'required'}),
             'phoneNum':forms.TextInput(attrs={'placeholder':"Contact Number",'required':'required'}),
             'whatsapp':forms.TextInput(attrs={'placeholder':"Whatsapp Number",'required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
         }
 
 # Photography
 
 class PhotographyContestForm(forms.ModelForm):
-    event_name = "photographycontest"
+    event_name = "photographycontests"
     class Meta:
         model = PhotographyContest
         fields = ['name','phoneNum','email', 'whatsapp', 'photo', 'video']
@@ -238,8 +265,8 @@ class PhotographyContestForm(forms.ModelForm):
         "phoneNum": "",
         'email':'',
         'whatsapp':'',
-        'photo' : 'Interested In Photography Contest',
-        'video' : 'Interested In Videography Contest'
+        'photo' : 'Photography Contest',
+        'video' : 'Videography Contest'
         }
 
         widgets = {
@@ -262,7 +289,9 @@ class PhotographyWorkshopForm(forms.ModelForm):
         "phoneNum": "",
         'email':'',
         'whatsapp':'',
-
+        'basicsofphoto':'Basics of Photography',
+        'lightpainting':'Light Painting Workshop',
+        'portrait':'Portrait Workshop',
         }
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
@@ -270,6 +299,9 @@ class PhotographyWorkshopForm(forms.ModelForm):
             'college': forms.TextInput(attrs={'placeholder': 'College','required':'required'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email ID','required':'required'}),
             'whatsapp': forms.TextInput(attrs={'placeholder': 'WhatsApp Number','required':'required'}),
+            'basicsofphoto':forms.CheckboxInput(),
+            'lightpainting':forms.CheckboxInput(),
+            'portrait':forms.CheckboxInput(),
         }
 
 # Informals
@@ -561,14 +593,17 @@ class TazhaKhabarForm(forms.ModelForm):
         'email':'',
         'day' : 'Choose Your Day Of Participation'
         }
-
+    
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
             'phoneNum': forms.TextInput(attrs={'placeholder': 'Contact Number','required':'required'}),
             'college': forms.TextInput(attrs={'placeholder': 'College Name','required':'required'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email Id','required':'required'}),
-            'day': forms.RadioSelect(attrs={}),
+            'day': forms.CheckboxSelectMultiple(attrs={}),
         }
+    # def __init__(self, *args, **kwargs):
+    #     super(TazhaKhabarForm, self).__init__(*args, **kwargs)
+    #     self.fields['TazhaKhabar'].empty_label = None
 
 class HouseOfBattleForm(forms.ModelForm):
     event_name = "houseofbattle"

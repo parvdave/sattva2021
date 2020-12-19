@@ -1,0 +1,53 @@
+.eventform input[type="text"] {
+  font-size: 18px;
+  width: 80%;
+  height: 42px;
+  padding: 0 6px;
+  margin: 20px 25px;
+  float: left;
+  outline: 0;
+  border-width: 0 0 3px;
+  border-color: #654321;
+  background-color: transparent;
+  color: #654321;
+  font-family: "Cinzel Decorative", cursive;
+  font-weight: bold;
+}
+
+.close.icon a
+{
+  display:block;
+  position:absolute;
+  top:6px;
+  left:6px;
+  height:20px;
+  width:20px;
+}
+
+.close.icon
+{
+  position:relative;
+}
+
+.form-content h1,.details-container h1
+{
+  font-family:'Smythe';
+  font-size:2.7rem;
+}
+.details-container
+{
+  padding:0 10%;
+  margin:0 auto;
+}
+.form-content li,.form-content p,.details-container p
+{
+  font-size:1.5rem;
+}
+
+.form-container
+{
+  display:grid;
+  grid-template-columns: 35% 55%;
+  column-gap:10%;
+}
+

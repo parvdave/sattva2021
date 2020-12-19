@@ -11,13 +11,16 @@ from .models import Event
 class Renderform(TemplateView):
     def get(self,request,event):
         try:
-            dict_event = {'solosinging':SoloSingingForm(),'rapbattle':RapBattleForm(),'groupsinging':GroupSingingForm,'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
+            dict_event = {'solosinging':SoloSingingForm(),'rapbattle':RapBattleForm(),'groupsinging':GroupSingingForm(),'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
             dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
             dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
             dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
             dict_event.update({'popculture':PopCultureForm(),'punintended':PunIntendedForm(),'mrmssattva':MrMsSattvaForm()})
-            dict_event.update({'photographycontest':PhotographyContestForm(),'photographyworkshop':PhotographyWorkshopForm()})
+            dict_event.update({'photographycontests':PhotographyContestForm(),'photographyworkshops':PhotographyWorkshopForm()})
             form = dict_event[event]
+            if 'photography' in event:
+                eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
+                return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':eventModel.rules.split('.')[:-1]})
             eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
             return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':eventModel.rules.split('.')[:-1]})
         except:
@@ -30,7 +33,7 @@ class Renderform(TemplateView):
         dict_event.update({'standupworkshop':StandUpWorkshopForm(request.POST),'influentialtrends':InfluentialTrendsWorkshopForm(request.POST),'danceworkshop':DanceWorkshopForm(request.POST),'fitnessworkshop':FitnessWorkshopForm(request.POST),'actingworkshop':ActingWorkshopForm(request.POST)})
         dict_event.update({"fifa":FifaForm(request.POST),'rocketleague':RocketLeagueForm(request.POST),'pubg':PUBGForm(request.POST)})
         dict_event.update({'popculture':PopCultureForm(request.POST),'punintended':PunIntendedForm(request.POST),'mrmssattva':MrMsSattvaForm(request.POST)})
-        dict_event.update({'photography':PhotographyForm(request.POST)})
+        dict_event.update({'photographycontests':PhotographyContestForm(request.POST),'photographyworkshops':PhotographyWorkshopForm(request.POST)})
         form = dict_event[event]
         if form.is_valid() == True:
             if 'email' in form.fields:

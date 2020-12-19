@@ -97,7 +97,16 @@ body:after {
 #ourteam .animated2s,
 #aboutus .animated2s,
 #contactus .animated2s,
-#eventpopup .animated2s
+.eventpopup .animated2s
+{
+  animation-delay: 1.7s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated2s
 {
   animation-delay: 1.7s;
   -webkit-animation-duration: 0.5s;
@@ -397,74 +406,6 @@ body:after {
   color: #654321;
 }
 
-.eventform {
-  align-items: center;
-  padding: 25px;
-  width: 90%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.eventform form {
-  height: 100%;
-  margin-top: -40px;
-}
-
-.eventform input {
-  font-size: 18px;
-  width: 220px;
-  height: 42px;
-  padding: 0 6px;
-  margin: 20px 25px;
-  float: left;
-  outline: 0;
-  border-width: 0 0 3px;
-  border-color: #654321;
-  background-color: transparent;
-  color: #654321;
-  font-family: "Cinzel Decorative", cursive;
-  font-weight: bold;
-}
-
-.eventform input::placeholder {
-  color: #654321;
-}
-.eventform select {
-  font-size: 18px;
-  width: 220px;
-  height: 42px;
-  margin: 20px 25px;
-  padding: 0 6px;
-  float: left;
-  border-width: 0 0 3px;
-  border-color: #654321;
-  background-color: transparent;
-  color: #654321;
-  font-family: "Cinzel Decorative", cursive;
-  font-weight: bold;
-}
-
-.eventform select option {
-  color: black;
-}
-
-#registersubmit {
-  width: 89%;
-  height: 55px;
-  float: none;
-  display: block;
-  margin: 0 0 100px 0;
-  background-color: #654321;
-  display: block;
-  padding: 0;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  color: #fff;
-  font-family: "Cinzel Decorative", cursive;
-  font-weight: bold;
-}
-
 .button {
   position: relative;
   border: none;
@@ -519,6 +460,24 @@ input:-webkit-autofill:active {
   -webkit-border-radius: 5px;
 }
 
+@keyframes glow {
+  from {
+    text-shadow: 0 0 0px #fff, 0 0 0.5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #eac469, 0 0 2.5px #eac469, 0 0 3px #eac469;
+  }
+  to {
+    text-shadow: 0 0 0.5px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #eac469, 0 0 5px #eac469, 0 0 6px #eac469;
+  }
+}
+
+#remdays
+{
+  font-size: 56px;
+  line-height: 1;
+  margin: 0!important;
+  color: #fff!important;
+  animation: glow 0.8s ease-in-out infinite alternate;
+}
+
 .iframeVideo {
   width: 90%;
   height: 700px;
@@ -545,8 +504,6 @@ input:-webkit-autofill:active {
     position: absolute;
   }
 
-  #remdays {
-  }
 }
 
 @media screen and (max-width: 1747px) {

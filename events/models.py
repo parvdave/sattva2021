@@ -1,5 +1,6 @@
 from django.db import models
 from phone_field import PhoneField
+from django.core import validators
 
 # Create your models here.
 class Event(models.Model):
@@ -8,16 +9,18 @@ class Event(models.Model):
     eventName = models.CharField(max_length=200,blank=True)
     deptName = models.CharField(max_length=200,blank=True)
     desc = models.TextField(max_length=1000,blank=True)
-    rules = models.TextField(max_length=1000,blank=True)
+    rules = models.TextField(max_length=100000000000000000000,blank=True)
     content = models.TextField(max_length=1000,blank=True)
     url = models.TextField(max_length=200,blank=True)
     def __str__(self):
         return self.eventName+f" ({self.deptName}) {self.eventslug}"
 
+# Models for forms
+
 
 class SoloSinging(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
     idlink = models.URLField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
@@ -28,29 +31,31 @@ class SoloSinging(models.Model):
     
 
 class GroupSinging(models.Model):
-    name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    name_of_group = models.CharField(max_length=200,blank=True)
+    number_of_members = models.IntegerField(blank=True)
+    name_of_head = models.CharField(max_length=200,blank=True)
+    # age = models.IntegerField(null=True)
     email = models.EmailField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
+    phoneNum = models.CharField(blank=True,max_length=13)
     whatsapp = models.CharField(max_length=10,blank=True)
     contacted = models.BooleanField(default=False,blank=True)
 
 class MonoAct(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
     idlink = models.URLField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(max_length=10,blank=True)
+    phoneNum = models.PositiveBigIntegerField(blank=True)
+    whatsapp = models.PositiveBigIntegerField(blank=True)
     contacted = models.BooleanField(default=False,blank=True)
 
 class ClassicalDance(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
     idlink = models.URLField(max_length=200,blank=True)
     style = models.CharField(max_length=200,blank=True)
@@ -62,29 +67,29 @@ class ClassicalDance(models.Model):
 
 class BeatBoxing(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
-    address = models.TextField(max_length=300,blank=True)
     idlink = models.URLField(max_length=200,blank=True)
+    address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(max_length=10,blank=True)
+    phoneNum = models.PositiveBigIntegerField(blank=True)
+    whatsapp = models.PositiveBigIntegerField(blank=True)
     contacted = models.BooleanField(default=False,blank=True)
 
 class RapBattle(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
+    idlink = models.URLField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    idlink = models.URLField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(max_length=10,blank=True)
+    phoneNum = models.PositiveBigIntegerField(blank=True)
+    whatsapp = models.PositiveBigIntegerField(blank=True)
     contacted = models.BooleanField(default=False,blank=True)
 
 class WesternDance(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
@@ -96,13 +101,13 @@ class WesternDance(models.Model):
 
 class Poetry(models.Model):
     name = models.CharField(max_length=200,blank=True)
-    age = models.IntegerField(null=True)
-    idlink = models.URLField(max_length=200,blank=True)
+    age = models.IntegerField(validators=[validators.MinValueValidator,validators.MaxValueValidator(25)],null=True)
     email = models.EmailField(max_length=200,blank=True)
+    idlink = models.URLField(max_length=200,blank=True)
     address = models.TextField(max_length=300,blank=True)
     country = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(max_length=10,blank=True)
+    phoneNum = models.PositiveBigIntegerField(blank=True)
+    whatsapp = models.PositiveBigIntegerField(blank=True)
     contacted = models.BooleanField(default=False,blank=True)
 
 class ShortFilms(models.Model):
@@ -150,8 +155,7 @@ class Bidweiser(models.Model):
 class TazhaKhabar(models.Model):
     dayChoice =( 
     ("1", "Day 1 - Topic 1"), 
-    ("2", "Day 2 - Topic 2"), 
-    ("3", "Both")
+    ("2", "Day 2 - Topic 2"),
     ) 
     name = models.CharField(max_length=200,blank=True)
     phoneNum = models.CharField(blank=True,max_length=10)
@@ -290,18 +294,13 @@ class PhotographyContest(models.Model):
     photo = models.BooleanField(default=False,blank=True)
     video = models.BooleanField(default=False,blank=True)
 
-class Videography(models.Model):
-    name = models.CharField(max_length=200,blank=True)
-    phoneNum = models.CharField(blank=True,max_length=10)
-    whatsapp = models.CharField(blank=True,max_length=10)
-    email = models.EmailField(max_length=200,blank=True)
 
 class PhotographyWorkshops(models.Model):
     name = models.CharField(max_length=200,blank=True)
     phoneNum = models.CharField(blank=True,max_length=10)
     whatsapp = models.CharField(blank=True,max_length=10)
     email = models.EmailField(max_length=200,blank=True)
-    basicsofphoto = models.BooleanField(null=True)
-    lightpainting = models.BooleanField(null=True)
-    portrait = models.BooleanField(null=True)
+    basicsofphoto = models.BooleanField(default=False,null=True)
+    lightpainting = models.BooleanField(default=False,null=True)
+    portrait = models.BooleanField(default=False,null=True)
     # interest = models.CharField(choices=workshopChoices,max_length=200)
