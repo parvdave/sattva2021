@@ -13,22 +13,55 @@
             <a class="item trans active" data-tab="register">Register</a>
         </div>
         <div class="ui bottom attached tab segment animated4s fadeIn details-container" data-tab="details">
+            {% if 'photography' in event.eventslug %}
+            {% for contest,detail in desc %}
+            <h1>{{contest}} Details</h1>
+            <p>{{detail}}</p>
+            {% endfor %}
+            {% else %}
             <h1>Details</h1>
+            <iframe  src="{{event.youtube}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br>
+            <br>
+
             <p>{{event.desc}}</p>
+            
+            {% endif %}
         </div>
         <div class="ui bottom attached tab segment active animated4s fadeIn" data-tab="register">
             <div class="form-container">
                 <div class="form-content">
-
-                    <h1>Rules</h1>
-                    <ul>
-                        {% for rule in rules %}
-                        <li>
-                            <p>{{rule}}</p>
-                        </li>
-                        <br>
-                        {% endfor %}
-                    </ul>
+                    {% if 'photography' in event.eventslug %}
+                    {% for name,rule in rules %}
+                        <h1>{{name}} Rules</h1>
+                        <ul>
+                            <li>
+                                <p>Be sure to maintain decorum.</p>
+                            </li>
+                            <br>
+                            <li>
+                                <p>Avoid vulgar language and cussing.</p>
+                            </li>
+                            <br>
+                            {% for each in rule %}
+                            <li>
+                                <p>{{each}}</p>
+                            </li>
+                            <br>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                    {% else %}
+                        <h1>Rules</h1>
+                        <ul>
+                            {% for rule in rules %}
+                            <li>
+                                <p>{{rule}}</p>
+                            </li>
+                            <br>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="eventform">
                     <form name="submit-to-google-sheet" method="POST" id="test-form">
@@ -67,27 +100,19 @@
 {% else %}
 {% endif %}
 {% endblock %}
-{% block script %}
+{% block js %}
 
-$(window).bind('load',function(){
-$('#eventpopup')
-.modal('show')
-;
-var vid = document.getElementById("scrollvid6");
-vid.currentTime = 4;
-});
-console.log('in script')
-// $(document).ready(function(){
-// function eventpopup() {
-// $('#eventpopup')
-// .modal('show')
-// ;
-// var vid = document.getElementById("scrollvid6");
-// vid.play();
-// }
-//
-// eventpopup();
-// });
+ $(document).ready(function(){
+     function eventpopup() {
+        $('#eventpopup')
+            .modal('show')
+        ;
+        var vid = document.getElementById("scrollvid9");
+        vid.currentTime = 4;
+    }
+
+    eventpopup();
+ });
 function submittosheet()
 {
 const scriptURL = '{{event.url}}';

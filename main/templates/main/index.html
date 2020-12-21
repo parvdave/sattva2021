@@ -31,8 +31,8 @@
 	<link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css" media="all" />
 	<link rel="stylesheet" href="{% static 'css/form.css' %}" type="text/css" media="all" />
 	<script src="{% static './js/keyListner.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bgImage.js' %}">    </script>
-    <script type="text/javascript" src="{% static 'js/fishTank.js' %}">    </script>
+    <script type="text/javascript" src="{% static 'js/bgImage.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/fishTank.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/backbutton.js' %}"></script>
 	<style type="text/css">
 		html {
@@ -47,7 +47,7 @@
 			}
 	</style>
 	<script type="text/javascript">
-		$(document).ready(function () {
+		$(document).ready (function() {
 			var outerContent = $('body');
 			outerContent.scrollLeft($(window).width() / 5);
 		});
@@ -58,9 +58,6 @@
 	<div class="container"><canvas id="fishtank" width="1200px" height="800px"></div>
 	<!-- Top-Nav-Bar -->
 	<div class="topnav navbar">
-		<div class="logo">
-			<img src="">
-		</div>
 		<div class="right-menu">
 			<div class="link">
 				<a class="item" id="remdays"></a><a class="item nohover">&nbspDays Left</a>
@@ -113,6 +110,14 @@
 			</div>
 			<div class="itembox">
 				<div class="icon">
+					<img src="{% static 'images/nav-but/S.png' %}">
+				</div>
+				<div class="link">
+					<a class="item" onclick="spons();">Sponsors</a>
+				</div>
+			</div>
+			<div class="itembox">
+				<div class="icon">
 					<img src="{% static 'images/nav-but/T.png' %}">
 				</div>
 				<div class="link">
@@ -144,7 +149,7 @@
 		<script src="{% static 'js/islandsView.js' %}"></script>
 		<img src="{% static 'images/islands/Island.png' %}" alt="" id="bgIsland">
 		<div class="one islands" onmouseover="imgHover(0)" onmouseout="imgOut(0)" id="island1" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'management' %}"><img src="{% static 'images/islands/Management-small.png' %}" alt="" id="small1" >
+			<a href="{% url 'main:island-view' 'management' %}" target="_blank"><img src="{% static 'images/islands/Management-small.png' %}" alt="" id="small1" >
 			<img src="{% static 'images/islands/Management-big.png' %}" alt="" id="big1"></a>
 		</div>
 		<div id="oneevents" class="events">
@@ -157,7 +162,7 @@
 		</div>
 
 		<div class="two islands" onmouseover="imgHover(1)" onmouseout="imgOut(1)" id="island2" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'informals' %}"><img src="{% static 'images/islands/Informals-small.png' %}" alt="" id="small2">
+			<a href="{% url 'main:island-view' 'informals' %}" target="_blank"><img src="{% static 'images/islands/Informals-small.png' %}" alt="" id="small2">
 			<img src="{% static 'images/islands/Informals-big.png' %}" alt="" id="big2"></a>
 		</div>
 		<div id="twoevents" class="events">
@@ -171,7 +176,7 @@
 		</div>
 
 		<div class="three islands" onmouseover="imgHover(2)" onmouseout="imgOut(2)" id="island3" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'lafa' %}"><img src="{% static 'images/islands/Social-small.png' %}" alt="" id="small3">
+			<a href="{% url 'main:island-view' 'lafa' %}" target="_blank"><img src="{% static 'images/islands/Social-small.png' %}" alt="" id="small3">
 			<img src="{% static 'images/islands/Social-big.png' %}" alt="" id="big3"></a>
 		</div>
 		<div id="threeevents" class="events">
@@ -182,7 +187,7 @@
 		</div>
 
 		<div class="four islands" onmouseover="imgHover(3)" onmouseout="imgOut(3)" id="island4" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'lafa' %}"><img src="{% static 'images/islands/LAFA-small.png' %}" alt="" id="small4">
+			<a href="{% url 'main:island-view' 'lafa' %}" target="_blank"><img src="{% static 'images/islands/LAFA-small.png' %}" alt="" id="small4">
 			<img src="{% static 'images/islands/LAFA-big.png' %}" alt="" id="big4"></a>
 		</div>
 		<div id="fourevents" class="events">
@@ -192,7 +197,7 @@
 		</div>
 
 		<div class="five islands" onmouseover="imgHover(4)" onmouseout="imgOut(4)" id="island5" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'Sports' %}"><img src="{% static 'images/islands/Sports-small.png' %}" alt="" id="small5">
+			<a href="{% url 'main:island-view' 'Sports' %}" target="_blank"><img src="{% static 'images/islands/Sports-small.png' %}" alt="" id="small5">
 			<img src="{% static 'images/islands/Sports-big.png' %}" alt="" id="big5"></a>
 		</div>
 		<div id="fiveevents" class="events">
@@ -201,7 +206,7 @@
 		</div>
 
 		<div class="six islands" onmouseover="imgHover(5)" onmouseout="imgOut(5)" id="island6" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'photography' %}"><img src="{% static 'images/islands/Photography-small.png' %}" alt="" id="small6">
+			<a href="{% url 'main:island-view' 'photography' %}" target="_blank"><img src="{% static 'images/islands/Photography-small.png' %}" alt="" id="small6">
 			<img src="{% static 'images/islands/Photography-big.png' %}" alt="" id="big6"></a>
 		</div>
 		<div id="sixevents" class="events">
@@ -210,7 +215,7 @@
 		</div>
 
 		<div class="seven islands" onmouseover="imgHover(6)" onmouseout="imgOut(6)" id="island7" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'workshops' %}"><img src="{% static 'images/islands/Workshops-small.png' %}" alt="" id="small7">
+			<a href="{% url 'main:island-view' 'workshops' %}" target="_blank"><img src="{% static 'images/islands/Workshops-small.png' %}" alt="" id="small7">
 			<img src="{% static 'images/islands/Workshops-big.png' %}" alt="" id="big7"></a>
 		</div>
 		<div id="sevenevents" class="events">
@@ -222,7 +227,7 @@
 		</div>
 
 		<div class="eight islands" onmouseover="imgHover(7)" onmouseout="imgOut(7)" id="island8" style="z-index: 2;">
-			<a href="{% url 'main:island-view' 'Pa' %}"><img src="{% static 'images/islands/Pa-small.png' %}" alt="" id="small8">
+			<a href="{% url 'main:island-view' 'Pa' %}" target="_blank"><img src="{% static 'images/islands/Pa-small.png' %}" alt="" id="small8">
 			<img src="{% static 'images/islands/Pa-big.png' %}" alt="" id="big8"></a>
 		</div>
 
@@ -279,117 +284,147 @@
 	</div>
 	<!-- /OurTeamPopUp -->
 
-		<!-- AboutUsPopUp -->
-		<div class="ui modal" id="aboutus">
-			<i class="close icon" style="z-index: 3000000;"></i>
-			<div class="tabmenu fadeIn animated2s">
-				<div class="ui top attached tabular menu">
-					<a class="item trans active" data-tab="aboutsattva">About Sattva</a>
-					<a class="item trans" data-tab="sponsor">Sponsor</a>
-				</div>
-				<div class="ui bottom attached tab segment active animated4s fadeIn" data-tab="aboutsattva">
-					<div class="ui padded stackable grid animated4s fadeIn">
-						<div class="two column row">
-							<div class="column aboutimage">
-								<img src="{% static 'images/sattva-events/DSC1.png' %}">
-							</div>
-							<div class="column quote">
-								<p>Since its inception in 2011, Sattva has only grown as a fest by amalgamating more genres, having bigger, better events and amassing larger footfalls every single year. This 10th edition of Sattva is no different. As we keep in mind the pandemic and social distancing norms, our team has relentlessly worked towards making this edition of Sattva possible as we transition into a fully online fest.</p>
-							</div>
+	<!-- AboutUsPopUp -->
+	<div class="ui modal" id="aboutus">
+		<i class="close icon" style="z-index: 3000000;"></i>
+		<div class="tabmenu fadeIn animated2s">
+			<div class="ui top attached tabular menu">
+				<a class="item trans active" data-tab="aboutsattva" id="abouttab1">About Sattva</a>
+				<a class="item trans" data-tab="sponsor" id="abouttab2">Sponsor</a>
+			</div>
+			<div class="ui bottom attached tab segment active animated4s fadeIn" data-tab="aboutsattva" id="aboutseg1">
+				<div class="ui padded stackable grid animated4s fadeIn">
+					<div class="row"><div class="sixteen wide column"><div class="aboutname">About Sattva</div></div></div>
+					<div class="two column row middle aligned content">
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/sattva-events/DSC1.jpg' %}"></center>
+							<div class="aboutimgname">Pro Night</div>
 						</div>
-						<div class="two column row">
-							<div class="column quote">
-								<p>Sattva 21 will be conducted in two phases. The first phase will take place between January 4 and January 8, 2021. Participants are required to register latest by 23rd December and send in their videos for the online screening by 30th December.</p>
-							</div>
-							<div class="column aboutimage">
-								<img src="{% static 'images/sattva-events/DSC2.png' %}">
-							</div>
-						</div>
-						<div class="two column row">
-							<div class="column aboutimage">
-								<img src="{% static 'images/sattva-events/DSC3.png' %}">
-							</div>
-							<div class="column quote">
-								<p>During the first phase, the judges will go through the all of submissions done by the participants and select the few best ones to move on. Results of phase 1 will be announced on 10th January, 2021. The selected participants will move on to phase two after which the winners for each event will be announced. The dates for phase 2 will be announced shortly on our website as well as our Instagram page. To know more about all the events, check out the events tab on our website. Through Sattva 21, we hope to alleviate some of the inconveniences caused during the pandemic and bounce back stronger from a year like 2020.</p>
-							</div>
-						</div>
-						<div class="two column row">
-							<div class="column quote">
-								<p>Cyclothon is the precursor to Sattva and through this enthralling affair we hope to offer a glimpse of the upcoming festivities that Sattva has to offer. It oversees 1500+ cyclists battling it out in the wee hours of a Sunday and is generally held in September and is comfortably one of the biggest cyclothons organised in Mumbai. It is organised in such a way that its route is one of the most happening areas of suburban Mumbai so as to catch maximum eyeballs. Banners of our sponsors are displayed across suburban Mumbai in addition to relentless publicity and the numerous standees and posters that are put up in almost all colleges in and around Mumbai.</p>
-							</div>
-							<div class="column aboutimage">
-								<img src="{% static 'images/sattva-events/DSC6.png' %}">
-							</div>
-						</div>
-						<div class="two column row">
-							<div class="column aboutimage">
-								<img src="{% static 'images/sattva-events/DSC5.png' %}">
-							</div>
-							<div class="column quote">
-								<p>This year, however, due to the unfortunate circumstances of the COVID-19 pandemic, Team Sattva was unable to pull of this exquisite pre-event of the fest. However, we do plan on incorporating other means to bring in the Sattva fever amongst Mumbaikars.</p>
-							</div>
+						<div class="column quote">
+							<p>Since its inception in 2011, Sattva has only grown as a fest by amalgamating more genres, having bigger, better events and amassing larger footfalls every single year. This 10th edition of Sattva is no different. As we keep in mind the pandemic and social distancing norms, our team has relentlessly worked towards making this edition of Sattva possible as we transition into a fully online fest.</p>
 						</div>
 					</div>
-				</div>
-				<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="sponsor">
-					<div class="ui stackable grid">
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/campus_events.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/chai_pe_charcha.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/china_saffron.jpg' %}"></div>
+					<div class="two column row middle aligned content">
+						<div class="column quote">
+							<p>Sattva 21 will be conducted in two phases. The first phase will take place between January 4 and January 8, 2021. Participants are required to register latest by 23rd December and send in their videos for the online screening by 30th December.</p>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/coolberg.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/dunes_spring.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/faasos.jpg' %}"></div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/sattva-events/DSC2.jpg' %}"></center>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/henry_and_smith.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/indian_oil.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/kavi_trivedi.jpg' %}"></div>
+					</div>
+					<div class="two column row middle aligned content">
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/sattva-events/DSC3.jpg' %}"></center>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/kish.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/kokan_bank.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/monster.jpg' %}"></div>
+						<div class="column quote">
+							<p>During the first phase, the judges will go through the all of submissions done by the participants and select the few best ones to move on. Results of phase 1 will be announced on 10th January, 2021. The selected participants will move on to phase two after which the winners for each event will be announced. The dates for phase 2 will be announced shortly on our website as well as our Instagram page. To know more about all the events, check out the events tab on our website. Through Sattva 21, we hope to alleviate some of the inconveniences caused during the pandemic and bounce back stronger from a year like 2020.</p>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/nvs_entertainment.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/opium.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/ovenstory_pizza.jpg' %}"></div>
+					</div>
+					<div class="row"><div class="sixteen wide column"><div class="aboutname">Cyclothon (Pre-Event)</div></div></div>
+					<div class="two column row middle aligned content">
+						<div class="column quote">
+							<p>Cyclothon is the precursor to Sattva and through this enthralling affair we hope to offer a glimpse of the upcoming festivities that Sattva has to offer. It oversees 1500+ cyclists battling it out in the wee hours of a Sunday and is generally held in September and is comfortably one of the biggest cyclothons organised in Mumbai. It is organised in such a way that its route is one of the most happening areas of suburban Mumbai so as to catch maximum eyeballs. Banners of our sponsors are displayed across suburban Mumbai in addition to relentless publicity and the numerous standees and posters that are put up in almost all colleges in and around Mumbai.</p>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/pair_a_dice_cafe.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/portronics.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/sage_student_housing.jpg' %}"></div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/sattva-events/DSC6.jpg' %}"></center>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/sunbeach_resort.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/swaad.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/swig.jpg' %}"></div>
+					</div>
+					<div class="two column row middle aligned content">
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/sattva-events/DSC5.jpg' %}"></center>
 						</div>
-						<div class="three column row">
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/waiwai.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/wow_momo.jpg' %}"></div>
-							<div class="column sponsor-image"><img src="{% static 'images/sponsors/zebronic.jpg' %}"></div>
+						<div class="column quote">
+							<p>This year, however, due to the unfortunate circumstances of the COVID-19 pandemic, Team Sattva was unable to pull of this exquisite pre-event of the fest. However, we do plan on incorporating other means to bring in the Sattva fever amongst Mumbaikars.</p>
+						</div>
+					</div>
+					<div class="row"><div class="sixteen wide column"><div class="aboutname">Celebs at Sattva</div></div></div>
+					<div class="three column row middle aligned content">
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/anil.png' %}"></center>
+							<div class="celebname">Anil Kapoor</div>
+						</div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/disha.png' %}"></center>
+							<div class="celebname">Disha Patni</div>
+						</div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/aditya.png' %}"></center>
+							<div class="celebname">Aditya Roy K</div>
+						</div>
+					</div>
+					<div class="three column row middle aligned content">
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/kk.png' %}"></center>
+							<div class="celebname">KK</div>
+						</div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/neeti.png' %}"></center>
+							<div class="celebname">Neeti Mohan</div>
+						</div>
+						<div class="column aboutimage">
+							<center><img src="{% static 'images/celeb/zakir.png' %}"></center>
+							<div class="celebname">Zakir Khan</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<video class="scrollvideo" id="scrollvid5">
-				<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
+			<div class="ui bottom attached tab segment animated4s fadeIn" data-tab="sponsor" id="aboutseg2">
+				<div class="ui stackable grid">
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/campus_events.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/chai_pe_charcha.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/china_saffron.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/coolberg.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/dunes_spring.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/faasos.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/henry_and_smith.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/indian_oil.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/kavi_trivedi.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/kish.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/kokan_bank.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/monster.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/nvs_entertainment.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/opium.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/ovenstory_pizza.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/pair_a_dice_cafe.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/portronics.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/sage_student_housing.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/sunbeach_resort.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/swaad.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/swig.jpg' %}"></div>
+					</div>
+					<div class="three column row">
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/waiwai.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/wow_momo.jpg' %}"></div>
+						<div class="column sponsor-image"><img src="{% static 'images/sponsors/zebronic.jpg' %}"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<!-- /AboutUsPopUp -->
+		<video class="scrollvideo" id="scrollvid5">
+			<source src="{% static 'videos/scroll.mp4' %}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<!-- /AboutUsPopUp -->
 
 	<!-- AfterMoviePopUp -->
 	<div class="ui modal" id="aftermovie">
 		<i class="close icon" style="z-index: 3000000;"></i>
 		<center>
-			<iframe src="https://www.youtube.com/embed/8mtVL9QZ3ww" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen
-				class="iframeVideo"></iframe>
+			<iframe src="https://www.youtube.com/embed/Ubhty86Zb1U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</center>
 	</div>
 	<!-- /AfterMoviePopUp -->
@@ -507,11 +542,14 @@
 	<div class="mobmenu pulldown" id="mobmenu">
 		<div class="mobilemenu">
 			<div class="mobilelogo">
-				<img src="{% static 'images/sattva-mlogo.png' %}">
+				<a href="{% url 'main:landing-page' %}"><img src="{% static 'images/sattva-mlogo.png' %}"></a>
 			</div>
 			<div class="menuitems">
 				<div class="mobileitem">
 					<a class="item" onclick="aboutus();">About Sattva</a>
+				</div>
+				<div class="mobileitem">
+					<a class="item" onclick="spons();">Sponsors</a>
 				</div>
 				<div class="mobileitem">
 					<a class="item" onclick="ourteam();">Our Team</a>
@@ -530,7 +568,6 @@
 </body>
 
 <script src="{% static 'js/main.js' %}"></script>
-<script src="{% static 'js/aboutus.js' %}"></script>
 
 </html>
 <script>
@@ -568,6 +605,8 @@
 				var image = document.createElement('div');
 				image.classList.add('image');
 				var corephoto = document.createElement('img');
+				image.classList.add('fadeIn');
+				image.classList.add('animated7s');
 				//corephoto.src = "{% static 'core/first second.png' %}".replace('first',i.fields.firstName);
 				//corephoto.src = corephoto.src.replace('second',i.fields.lastName);
 				corephoto.setAttribute('src', "{% static 'images/Departments/test3.png' %}".replace('test3', items[i].fields.firstName.toLowerCase() + "_" + items[i].fields.lastName.toLowerCase()));

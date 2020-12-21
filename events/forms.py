@@ -734,3 +734,55 @@ class PUBGForm(forms.ModelForm):
             'tier4': forms.TextInput(attrs={'placeholder': 'Tier of 4th Participant','required':'required'}),
         }
 
+class GlamUpForm(forms.ModelForm):
+    event_name = "glamup"
+    class Meta:
+        model = GlamUp
+        fields = ['name','phoneNum','college','age','city','email','idlink','youtube']
+        labels = {
+        "name": "",
+        "phoneNum": "",
+        'college':'',
+        "age": "",
+        "city": "",
+        'email':'',
+        "idlink": "Upload the id to <a href='https://imgdb.in'>imgdb.in</a> and grab the link",
+        "youtube": "Upload the video to youtube and grab the link",
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'college':forms.TextInput(attrs={'placeholder':'College Name','required':'required'}),
+            'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
+            'city':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
+            'youtube':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
+        }
+
+class CharadesForm(forms.ModelForm):
+    event_name = 'charadeswithatwist'
+    class Meta:
+        model = Charades
+        fields = ['name','phoneNum','college','age','city','email','howplay','groupname']
+        labels = {
+        "name": "",
+        "phoneNum": "",
+        'college':'',
+        "age": "",
+        "city": "",
+        'email':'',
+        "howplay": "",
+        "groupname": "",
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Name','required':'required'}),
+            'phoneNum':forms.TextInput(attrs={'placeholder':'Contact Number','required':'required'}),
+            'college':forms.TextInput(attrs={'placeholder':'College Name','required':'required'}),
+            'email':forms.EmailInput(attrs={'placeholder': 'Email','required':'required'}),
+            'age':forms.NumberInput(attrs={'placeholder':'Age','required':'required','min':16,'max':25}),
+            'city':forms.TextInput(attrs={'placeholder':'Country','required':'required'}),
+            'howplay':forms.RadioSelect(attrs={'placeholder':'Address','required':'required'}),
+            'idlink':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
+            'youtube':forms.TextInput(attrs={'placeholder':'Link','required':'required'}),
+        }

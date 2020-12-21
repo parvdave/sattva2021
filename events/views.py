@@ -10,21 +10,34 @@ from .models import Event
 # Create your views here.
 class Renderform(TemplateView):
     def get(self,request,event):
-        try:
-            dict_event = {'solosinging':SoloSingingForm(),'rapbattle':RapBattleForm(),'groupsinging':GroupSingingForm(),'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
-            dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
-            dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
-            dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
-            dict_event.update({'popculture':PopCultureForm(),'punintended':PunIntendedForm(),'mrmssattva':MrMsSattvaForm()})
-            dict_event.update({'photographycontests':PhotographyContestForm(),'photographyworkshops':PhotographyWorkshopForm()})
-            form = dict_event[event]
-            if 'photography' in event:
-                eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
-                return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':eventModel.rules.split('.')[:-1]})
+        
+        dict_event = {'solosinging':SoloSingingForm(),'rapbattle':RapBattleForm(),'groupsinging':GroupSingingForm(),'shortfilms':ShortFilmsForm(),'poetry':PoetryForm(),'groupsinging':GroupSingingForm(),'beatboxing':BeatBoxingForm(),'classicaldance':ClassicalDanceForm(),'westerndance':WesternDanceForm(),'monoact':MonoActForm()}
+        dict_event.update({'advision':AdVisionForm(),"turnaround":TurnaroundForm(),"houseofbattle":HouseOfBattleForm(),"tazhakhabar":TazhaKhabarForm(),"bidweiser":BidweiserForm(),"marketguru":MarketGuruForm()})
+        dict_event.update({'standupworkshop':StandUpWorkshopForm(),'influentialtrends':InfluentialTrendsWorkshopForm(),'danceworkshop':DanceWorkshopForm(),'fitnessworkshop':FitnessWorkshopForm(),'actingworkshop':ActingWorkshopForm()})
+        dict_event.update({"fifa":FifaForm(),'rocketleague':RocketLeagueForm(),'pubg':PUBGForm()})
+        dict_event.update({'popculture':PopCultureForm(),'punintended':PunIntendedForm(),'mrmssattva':MrMsSattvaForm()})
+        dict_event.update({'photographycontests':PhotographyContestForm(),'photographyworkshops':PhotographyWorkshopForm()})
+        dict_event.update({'charadeswithatwist':CharadesForm(),'glamup':GlamUpForm()})
+        form = dict_event[event]
+        if 'photography' in event:
             eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
-            return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':eventModel.rules.split('.')[:-1]})
-        except:
-            return render(request,'events/sorry.html',{})
+            if 'contest' in event:
+                contests_rules = eventModel.rules.split('|')
+                for i in range(len(contests_rules)):
+                    contests_rules[i] = contests_rules[i].split(':')
+                    contests_rules[i][1] = contests_rules[i][1].split('##')
+                contests_details = eventModel.desc.split('|')
+                for i in range(len(contests_details)):
+                    contests_details[i] = contests_details[i].split(':')
+                return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':contests_rules,'desc':contests_details})
+            else:
+                workshops_details = eventModel.desc.split('|')
+                for i in range(len(workshops_details)):
+                    workshops_details[i] = workshops_details[i].split(':')
+        eventModel = Event.objects.all().filter(eventslug__icontains=event).first()
+        return render(request,'events/eventform.html',{'form':form,'event':eventModel,'rules':eventModel.rules.split('.')[:-1]})
+        
+            # return render(request,'events/sorry.html',{})
 
         # return render(request,'events/eventform.html',{'form':form,'rules':eventModel.rules.split('.'),'desc':eventModel.desc,'script':eventModel.url})
     def post(self,request,event):

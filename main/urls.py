@@ -6,5 +6,5 @@ app_name='main'
 
 urlpatterns = [
     path('',views.home,name='landing-page'),
-    path('<str:dept>',views.islandview,name='island-view'),
+    path('depts/<str:dept>',views.islandview,name='island-view'),
 ]

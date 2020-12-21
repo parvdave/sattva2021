@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.core import mail
 import os
-import django_heroku
+# import django_heroku
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -139,4 +139,4 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 # CRISPY_TEMPLATE_PACK = 'bootstrap4'
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

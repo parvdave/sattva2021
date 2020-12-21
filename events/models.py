@@ -12,6 +12,7 @@ class Event(models.Model):
     rules = models.TextField(max_length=100000000000000000000,blank=True)
     content = models.TextField(max_length=1000,blank=True)
     url = models.TextField(max_length=200,blank=True)
+    youtube = models.TextField(max_length=1000,blank=True)
     def __str__(self):
         return self.eventName+f" ({self.deptName}) {self.eventslug}"
 
@@ -304,3 +305,31 @@ class PhotographyWorkshops(models.Model):
     lightpainting = models.BooleanField(default=False,null=True)
     portrait = models.BooleanField(default=False,null=True)
     # interest = models.CharField(choices=workshopChoices,max_length=200)
+
+
+# LAFA
+
+class GlamUp(models.Model):
+    name = models.CharField(max_length=200,blank=True)
+    phoneNum = models.CharField(blank=True,max_length=10)
+    college = models.CharField(blank=True,max_length=200)
+    age = models.IntegerField(validators=[validators.MinValueValidator(16),validators.MaxValueValidator(21)],null=True)
+    city = models.CharField(blank=True,max_length=200)
+    email = models.EmailField(max_length=200,blank=True)
+    idlink = models.URLField(max_length=200,blank=True)
+    youtube = models.URLField(max_length=200,blank=True)
+
+class Charades(models.Model):
+    playing  = (
+        (1,'Solo'),
+        (2,'In a pair'),
+        (3,'In a group of 3'),
+    )
+    name = models.CharField(max_length=200,blank=True)
+    phoneNum = models.CharField(blank=True,max_length=10)
+    college = models.CharField(blank=True,max_length=200)
+    age = models.IntegerField(validators=[validators.MinValueValidator(16),validators.MaxValueValidator(25)],null=True)
+    city = models.CharField(blank=True,max_length=200)
+    email = models.EmailField(max_length=200,blank=True)
+    howplay = models.CharField(max_length=200,choices=playing)
+    groupname = models.CharField(max_length=200,blank=True)

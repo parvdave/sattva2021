@@ -1,13 +1,39 @@
 {% extends 'main/base.html' %}
 {% load static %}
-{% block style %}
 
+
+{% block style %}
+    
 {% endblock %}
+
+{% block js %}
+    $(document).ready (function() {
+        var outerContent = $('body');
+        outerContent.scrollLeft($(window).width() / 5);
+    });
+{% endblock %}
+
+
 {% block content %}
-    <div onload="viewevents({{argument}})" class="map" id="bgMap">
+    <div onload="viewevents({{argument}})" class="map" id="bgMap" style="margin-top: -50px;z-index:6;">
         <script src="{% static 'js/islandsView.js' %}"></script>
         {% with 'images/islands/withflag/'|add:dept|add:'.png' as island_url %}
         <img src="{% static island_url %}" id="bgIsland">
+        <script>
+            $(document).ready ( function() {
+                var isl = {
+                  'PA': 85,
+                  'Management': 95,
+                  'Informals': 82,
+                  'Workshops': 80,
+                  'Photography': 57,
+                  'Sports': 150
+                };
+              if ( $(window).width() < '600' ) {
+                document.getElementById("bgIsland").style.width = isl['{{deptName}}']+'%';
+                }
+            });
+        </script>
         {% endwith %}
         <div id="{{deptdeets.deptid}}events"  style="display:block;" class="events">
             {% for event in events %}
@@ -19,5 +45,11 @@
                 </p>
             {% endfor %}
         </div>
+        <div id="islandname"><p><a style="color: #fff!important;" id="islandDept">{{ deptName }}</a></p></div>
+        <script>
+            if(document.getElementById('islandDept').innerHTML == 'PA') {
+                document.getElementById('islandDept').innerHTML = 'Performing Arts';
+            }
+        </script>
     </div>
 {% endblock %}
